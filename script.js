@@ -1,5 +1,5 @@
 
-        // /* SLIDE CONTROL */
+        /* SLIDE CONTROL */
 
         // let current = 0;
         // const slides = document.querySelectorAll('.slide');
@@ -16,32 +16,32 @@
         // }
 
 
-        // /* SMART SCROLL + SLIDE */
+        /* SMART SCROLL + SLIDE */
 
-        // window.addEventListener('wheel', e => {
-        //     const slide = slides[current];
-        //     const atTop = slide.scrollTop === 0;
-        //     const atBottom = Math.ceil(slide.scrollTop + slide.clientHeight) >= slide.scrollHeight;
-        //     if (lock) return;
-        //     if (e.deltaY > 0 && atBottom) {
-        //         lock = true;
-        //         show(current + 1);
-        //         setTimeout(() => lock = false, 900);
-        //     }
-        //     else if (e.deltaY < 0 && atTop) {
-        //         lock = true;
-        //         show(current - 1);
-        //         setTimeout(() => lock = false, 900);
-        //     }
-        // }
+        window.addEventListener('wheel', e => {
+            const slide = slides[current];
+            const atTop = slide.scrollTop === 0;
+            const atBottom = Math.ceil(slide.scrollTop + slide.clientHeight) >= slide.scrollHeight;
+            if (lock) return;
+            if (e.deltaY > 0 && atBottom) {
+                lock = true;
+                show(current + 1);
+                setTimeout(() => lock = false, 900);
+            }
+            else if (e.deltaY < 0 && atTop) {
+                lock = true;
+                show(current - 1);
+                setTimeout(() => lock = false, 900);
+            }
+        }
 
-        //     , {
-        //         passive: true
-        //     }
+            , {
+                passive: true
+            }
 
-        // );
+        );
 
-        // /* TYPING EFFECT */
+        /* TYPING EFFECT */
 
         const nameText = "Vishal Kumar";
         let i = 0;
@@ -51,6 +51,6 @@
                 target.textContent += nameText.charAt(i++);
                 setTimeout(type, 120);
             }
-        // }
+        }
 
-        // )();
+        )();
