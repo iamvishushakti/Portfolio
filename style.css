@@ -256,8 +256,8 @@ p,a{max-width:900px;text-decoration:none;color:var(--muted)}
 }
 
 .home-links a {
-    display:inline-block;
-    margin:10px 15px;
+    display:block;
+    margin:8px 0;
     color:var(--accent2);
     font-weight:600;
     text-decoration:none;
@@ -267,6 +267,9 @@ p,a{max-width:900px;text-decoration:none;color:var(--muted)}
     color:white;
     text-shadow:0 0 10px var(--accent2);
 }
+
+
+
 
 
 @keyframes wave{
