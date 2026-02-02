@@ -255,6 +255,20 @@ p,a{max-width:900px;text-decoration:none;color:var(--muted)}
     transform-origin:70% 70%;
 }
 
+.home-links a {
+    display:inline-block;
+    margin:10px 15px;
+    color:var(--accent2);
+    font-weight:600;
+    text-decoration:none;
+}
+
+.home-links a:hover {
+    color:white;
+    text-shadow:0 0 10px var(--accent2);
+}
+
+
 @keyframes wave{
     0%{transform:rotate(0)}
     15%{transform:rotate(14deg)}
