@@ -100,5 +100,5 @@ header {
 
 /* SKILL GRID FIX */
 .skill-grid{
-    overflow: visible; /* ✅ was auto */
+    overflow: scroll; /* ✅ was auto */
 }
