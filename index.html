@@ -6,13 +6,8 @@
 <title>Vishal Kumar | Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Font Awesome -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-
-<!-- Font -->
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -24,7 +19,6 @@
 --bg:#020617;
 }
 
-/* GLOBAL */
 body{
 margin:0;
 height:100vh;
@@ -50,8 +44,8 @@ max-width:1400px;
 margin:auto;
 padding:14px 32px;
 display:flex;
-align-items:center;
 justify-content:space-between;
+align-items:center;
 }
 
 .brand{
@@ -114,16 +108,14 @@ pointer-events:auto;
 .contact{background:radial-gradient(circle at bottom left,#052e16,transparent 45%),#020617;}
 
 /* TEXT ANIMATION */
-.slide h1,.slide h2,.slide p,.slide ul,
+.slide h1,.slide h2,.slide p,
 .skill-card,.project-card,.exp-card{
 opacity:0;
 transform:translateY(35px);
 animation:fadeUp .8s forwards;
 }
-
 .slide.active h1,.slide.active h2{animation-delay:.1s}
 .slide.active p{animation-delay:.25s}
-.slide.active ul,
 .slide.active .skill-card,
 .slide.active .project-card,
 .slide.active .exp-card{animation-delay:.4s}
@@ -166,7 +158,11 @@ margin:4px 6px 0 0;
 background:rgba(139,92,246,.2);
 }
 
-/* SKILLS */
+/* SKILLS FIX */
+.slide.skills{
+overflow:hidden!important;
+}
+
 .skill-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
@@ -174,6 +170,19 @@ gap:26px;
 margin-top:30px;
 max-height:65vh;
 overflow-y:auto;
+padding-right:6px;
+}
+
+/* Beautiful scrollbar */
+.skill-grid::-webkit-scrollbar{width:8px;}
+.skill-grid::-webkit-scrollbar-track{
+background:rgba(255,255,255,.05);
+border-radius:10px;
+}
+.skill-grid::-webkit-scrollbar-thumb{
+background:linear-gradient(180deg,#8b5cf6,#22d3ee);
+border-radius:10px;
+box-shadow:0 0 10px rgba(139,92,246,.7);
 }
 
 .skill-card{
@@ -182,34 +191,17 @@ border-radius:22px;
 padding:26px;
 text-align:center;
 border:1px solid rgba(139,92,246,.15);
-transition:.45s;
-}
-.skill-card:hover{
-transform:translateY(-12px);
-box-shadow:0 25px 60px rgba(139,92,246,.45);
-}
-
-.skill-card i{
-font-size:36px;
-margin-bottom:12px;
-background:linear-gradient(90deg,var(--accent),var(--accent2));
--webkit-background-clip:text;
-color:transparent;
 }
 
 .discription-skill{
 max-height:0;
 overflow:hidden;
 opacity:0;
-transform:translateY(-10px);
 transition:.4s;
-font-size:13px;
-color:var(--muted);
 }
 .skill-card:hover .discription-skill{
 max-height:80px;
 opacity:1;
-transform:none;
 margin-top:8px;
 }
 
@@ -226,15 +218,7 @@ background:rgba(15,23,42,.85);
 border-radius:22px;
 padding:26px;
 border:1px solid rgba(139,92,246,.15);
-transition:.45s;
 }
-.project-card:hover{
-transform:translateY(-14px);
-box-shadow:0 25px 60px rgba(139,92,246,.45);
-}
-
-.project-title{font-weight:700}
-.project-desc{font-size:14px;color:var(--muted)}
 
 /* SOCIAL */
 .section-bottom-left{
@@ -243,19 +227,16 @@ bottom:0;
 color:#4f679f;
 }
 
-/* WAVE */
 .wave-emoji{
 display:inline-block;
 font-size:40px;
 animation:wave 1.5s infinite;
-transform-origin:70% 70%;
 }
 @keyframes wave{
 15%{transform:rotate(14deg)}
 30%{transform:rotate(-8deg)}
 40%{transform:rotate(14deg)}
 }
-
 </style>
 </head>
 
@@ -293,9 +274,9 @@ Building <strong>scalable, secure & business-critical</strong> systems.
 </div>
 
 <div class="col-md-5 section-bottom-left">
-<a href="" style="display:block;"><i class="fa-brands fa-github"></i> @iamvisushakti</a>
-<a href="" style="display:block;"><i class="fa-brands fa-linkedin" style="color:#8172ca;"></i> @iamvisushakti</a>
-<a href=""><i class="fa-brands fa-youtube" style="color:#d81313;"></i> Online Coding Classes</a>
+<a href='' style="display:block;"><i class="fa-brands fa-github"></i> @iamvisushakti</a>
+<a href='' style="display:block;"><i class="fa-brands fa-linkedin"></i> @iamvisushakti</a>
+<a href=''><i class="fa-brands fa-youtube"></i> Online Coding Classes</a>
 </div>
 </div>
 </section>
@@ -303,7 +284,7 @@ Building <strong>scalable, secure & business-critical</strong> systems.
 <!-- ABOUT -->
 <section class="slide about">
 <h2><i class="fas fa-comments"></i> About Me</h2>
-<p>I’m a Web Developer with 3+ years experience in backend, SQL databases and SaaS platforms.</p>
+<p>I’m a Web Developer with 3+ years of experience and strong expertise in backend development, SQL databases, and SaaS platforms.</p>
 </section>
 
 <!-- EXPERIENCE -->
@@ -341,10 +322,10 @@ Building <strong>scalable, secure & business-critical</strong> systems.
 
 <div class="skill-grid">
 <div class="skill-card"><i class="fa-brands fa-html5"></i><h5>HTML</h5>
-<p class="discription-skill">Smarty (WHMCS) | EJS</p></div>
+<p class="discription-skill">Smarty in (WHMCS) | Ejs in NodeJS</p></div>
 
 <div class="skill-card"><i class="fa-brands fa-css3-alt"></i><h5>CSS</h5>
-<p class="discription-skill">CSS | Bootstrap</p></div>
+<p class="discription-skill">CSS | Bootstrap Basic</p></div>
 
 <div class="skill-card"><i class="fa-brands fa-square-js"></i><h5>JavaScript</h5>
 <p class="discription-skill">JS | JQuery</p></div>
@@ -353,34 +334,22 @@ Building <strong>scalable, secure & business-critical</strong> systems.
 <p class="discription-skill">Express | JWT</p></div>
 
 <div class="skill-card"><i class="fa-brands fa-php"></i><h5>PHP</h5>
-<p class="discription-skill">3+ years</p></div>
+<p class="discription-skill">3year+ Experience</p></div>
 
 <div class="skill-card"><i class="fa-brands fa-react"></i><h5>React</h5></div>
 
 <div class="skill-card"><i class="fa-solid fa-database"></i><h5>SQL | MongoDB</h5>
-<p class="discription-skill">DB Design</p></div>
+<p class="discription-skill">SQL 9 months</p></div>
 </div>
 </section>
 
 <!-- PROJECTS -->
 <section class="slide projects">
 <h2><i class="fa-solid fa-diagram-project"></i> Projects</h2>
-
 <div class="project-grid">
-<div class="project-card">
-<div class="project-title">Invoice Automation System</div>
-<div class="project-desc">Billing & reporting system.</div>
-</div>
-
-<div class="project-card">
-<div class="project-title">CRM Platform</div>
-<div class="project-desc">Role-based CRM.</div>
-</div>
-
-<div class="project-card">
-<div class="project-title">SaaS Subscription</div>
-<div class="project-desc">Billing & payments.</div>
-</div>
+<div class="project-card"><div class="project-title">Invoice Automation</div></div>
+<div class="project-card"><div class="project-title">CRM Platform</div></div>
+<div class="project-card"><div class="project-title">SaaS Subscription</div></div>
 </div>
 </section>
 
@@ -397,15 +366,25 @@ let current=0;
 const slides=document.querySelectorAll(".slide");
 let lock=false;
 
+/* Restore last slide */
+const saved=sessionStorage.getItem("slideIndex");
+if(saved){
+slides[0].classList.remove("active");
+current=parseInt(saved);
+slides[current].classList.add("active");
+}
+
 function show(i){
 slides[current].classList.remove("active");
 slides[current].scrollTop=0;
 current=(i+slides.length)%slides.length;
 slides[current].classList.add("active");
+sessionStorage.setItem("slideIndex",current);
 }
+
 function goTo(i){show(i);}
 
-/* WHEEL */
+/* Wheel */
 window.addEventListener("wheel",e=>{
 if(lock)return;
 lock=true;
@@ -413,19 +392,20 @@ e.deltaY>0?show(current+1):show(current-1);
 setTimeout(()=>lock=false,800);
 },{passive:true});
 
-/* TOUCH SWIPE */
+/* Touch */
 let startY=0;
-window.addEventListener("touchstart",e=>{
-startY=e.touches[0].clientY;
-},{passive:true});
-
+window.addEventListener("touchstart",e=>startY=e.touches[0].clientY,{passive:true});
 window.addEventListener("touchend",e=>{
 let endY=e.changedTouches[0].clientY;
 if(Math.abs(startY-endY)<50)return;
 startY>endY?show(current+1):show(current-1);
 },{passive:true});
 
-/* TYPING */
+/* Stop slide change while scrolling skills */
+document.querySelector(".skill-grid")
+.addEventListener("wheel",e=>e.stopPropagation(),{passive:true});
+
+/* Typing */
 const nameText="Vishal Kumar";
 let i=0;
 const target=document.getElementById("typingName");
@@ -436,16 +416,15 @@ setTimeout(type,120);
 }
 })();
 
-/* EXPERIENCE COUNTER */
+/* Experience counter */
 function animateDuration(el){
 const total=parseInt(el.dataset.months);
 let cur=0;
-const step=Math.ceil(total/40);
 const timer=setInterval(()=>{
-cur+=step;
-if(cur>=total){cur=total;clearInterval(timer);}
+cur++;
 el.textContent=cur+" Months";
-},30);
+if(cur>=total)clearInterval(timer);
+},40);
 }
 document.querySelectorAll('.exp-duration').forEach(animateDuration);
 </script>
