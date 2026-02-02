@@ -216,8 +216,10 @@ display:flex;
 /* grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); */
 gap:26px;
 margin-top:30px;
-    overflow-y: scroll;
+overflow-x: scroll;
+padding:20px;    
 }
+.project-grid::-webkit-scrollbar{width:0px;}
 
 .project-card{
 background:rgba(15,23,42,.85);
@@ -597,6 +599,7 @@ document.querySelectorAll('.exp-duration').forEach(animateDuration);
 
 </body>
 </html>
+
 
 
 
