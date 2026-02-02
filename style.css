@@ -1,214 +1,519 @@
-:root {
-    --accent: #8b5cf6;
-    --accent2: #22d3ee;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-    --bg: #020617;
-}
 
-/* GLOBAL */
-body {
-    margin: 0;
-    height: 100vh;
-    overflow: hidden;
-    font-family: 'Fira Code', monospace;
-    color: var(--text);
-    background: var(--bg);
-}
+        :root {
+            --accent: #8b5cf6;
+            --accent2: #22d3ee;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --bg: #020617;
+        }
 
-/* HEADER */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100;
-    background: rgba(2, 6, 23, .7);
-    backdrop-filter: blur(16px);
-    box-shadow: 0 12px 40px rgba(139, 92, 246, .25);
-}
 
-.nav-inner {
-    max-width: 1400px;
-    margin: auto;
-    padding: 14px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+        /* GLOBAL */
 
-.brand {
-    font-size: 22px;
-    font-weight: 700;
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
-    -webkit-background-clip: text;
-    color: transparent;
-}
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Fira Code', monospace;
+            color: var(--text);
+            background: var(--bg);
+        }
 
-.cursor {
-    color: var(--accent2);
-    animation: blink 1s infinite;
-}
 
-@keyframes blink {
-    0%,50%{opacity:1}
-    51%,100%{opacity:0}
-}
+        /* HEADER */
 
-.nav-menu button {
-    margin-left: 12px;
-    font-weight: 600;
-    background: rgba(139, 92, 246, .15);
-    border: none;
-    color: var(--text);
-}
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(2, 6, 23, .7);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 12px 40px rgba(139, 92, 246, .25);
+        }
 
-.nav-menu button:hover {
-    background: rgba(139, 92, 246, .35)
-}
+        .nav-inner {
+            max-width: 1400px;
+            margin: auto;
+            padding: 14px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-/* SLIDES */
-.wrapper {
-    height: 100vh;
-    width: 100vw;
-    position: relative;
-}
+        .brand {
+            font-size: 22px;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            color: transparent;
+        }
 
-.slide {
-    position: absolute;
-    inset: 0;
-    padding: 140px 10%;
-    opacity: 0;
-    transform: translateY(90px);
-    transition: 1s cubic-bezier(.22, .61, .36, 1);
-    pointer-events: none;
-}
+        .cursor {
+            color: var(--accent2);
+            animation: blink 1s infinite;
+        }
 
-.slide.active {
-    opacity: 1;
-    transform: none;
-    pointer-events: auto;
-}
+        @keyframes blink {
 
-/* BACKGROUNDS */
-.home {background: radial-gradient(circle at top left,#1e1b4b,transparent 45%),#020617;}
-.about {background: radial-gradient(circle at bottom right,#164e63,transparent 45%),#020617;}
-.experience {background: radial-gradient(circle at top right,#312e81,transparent 45%),#020617;}
-.skills {background: radial-gradient(circle at center,#0f172a,transparent 45%),#020617;}
-.projects {background: radial-gradient(circle at top left,#3f1d4d,transparent 45%),#020617;}
-.contact {background: radial-gradient(circle at bottom left,#052e16,transparent 45%),#020617;}
+            0%,
+            50% {
+                opacity: 1
+            }
 
-/* TEXT ANIMATION */
-.slide h1,.slide h2,.slide p,.slide ul,
-.skill-card,.project-card,.exp-card {
-    opacity: 0;
-    transform: translateY(35px);
-    animation: fadeUp .8s forwards;
-}
+            51%,
+            100% {
+                opacity: 0
+            }
+        }
 
-@keyframes fadeUp {
-    to {opacity: 1; transform: none}
-}
+        .nav-menu button {
+            margin-left: 12px;
+            font-weight: 600;
+            background: rgba(139, 92, 246, .15);
+            border: none;
+            color: var(--text);
+        }
 
-h1,h2 {font-weight:700}
+        .nav-menu button:hover {
+            background: rgba(139, 92, 246, .35)
+        }
 
-p,a {
-    max-width: 900px;
-    text-decoration: none;
-    color: var(--muted)
-}
 
-/* EXPERIENCE */
-.exp-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
-}
+        /* SLIDES */
 
-.exp-card {
-    background: rgba(15, 23, 42, .85);
-    border-radius: 22px;
-    padding: 28px;
-    border: 1px solid rgba(139, 92, 246, .15);
-    transition: .45s;
-}
+        .wrapper {
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+        }
 
-.exp-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 25px 60px rgba(139, 92, 246, .45);
-}
+        .slide {
+            position: absolute;
+            inset: 0;
+            padding: 140px 10%;
+            opacity: 0;
+            transform: translateY(90px);
+            transition: 1s cubic-bezier(.22, .61, .36, 1);
+            pointer-events: none;
+        }
 
-.exp-role {font-size:18px;font-weight:700}
-.exp-company {font-size:14px;color:#c7d2fe;margin-bottom:6px;}
-.exp-duration {font-size:20px;font-weight:700;color:var(--accent2);margin:10px 0;}
+        .slide.active {
+            opacity: 1;
+            transform: none;
+            pointer-events: auto;
+        }
 
-.tech {
-    display: inline-block;
-    font-size: 12px;
-    padding: 5px 12px;
-    border-radius: 14px;
-    margin: 4px 6px 0 0;
-    background: rgba(139, 92, 246, .2);
-}
 
-/* SKILLS */
-.skill-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 26px;
-    margin-top: 30px;
-}
+        /* BACKGROUNDS */
 
-.skill-card {
-    background: rgba(15, 23, 42, .85);
-    border-radius: 22px;
-    padding: 26px;
-    text-align: center;
-    border: 1px solid rgba(139, 92, 246, .15);
-    transition: .45s;
-}
+        .home {
+            background: radial-gradient(circle at top left, #1e1b4b, transparent 45%), #020617;
+        }
 
-.skill-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 25px 60px rgba(139, 92, 246, .45);
-}
+        .about {
+            background: radial-gradient(circle at bottom right, #164e63, transparent 45%), #020617;
+        }
 
-.skill-card i {
-    font-size: 36px;
-    margin-bottom: 12px;
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
-    -webkit-background-clip: text;
-    color: transparent;
-}
+        .experience {
+            background: radial-gradient(circle at top right, #312e81, transparent 45%), #020617;
+        }
 
-/* HERO IMAGE */
-.hero-img {
-    width: 260px;
-    object-fit: cover;
-    filter: grayscale(100%) contrast(1.2);
-}
+        .skills {
+            background: radial-gradient(circle at center, #0f172a, transparent 45%), #020617;
+        }
 
-.hero-img:hover {
-    filter: grayscale(0%);
-    transform: scale(1.05);
-    transition: .4s;
-}
+        .projects {
+            background: radial-gradient(circle at top left, #3f1d4d, transparent 45%), #020617;
+        }
 
-/* WAVE */
-.wave-emoji{
-    display:inline-block;
-    font-size:40px;
-    animation:wave 1.5s infinite;
-    transform-origin:70% 70%;
-}
+        .contact {
+            background: radial-gradient(circle at bottom left, #052e16, transparent 45%), #020617;
+        }
 
-@keyframes wave{
-    0%{transform:rotate(0)}
-    15%{transform:rotate(14deg)}
-    30%{transform:rotate(-8deg)}
-    40%{transform:rotate(14deg)}
-    50%{transform:rotate(-4deg)}
-    60%{transform:rotate(10deg)}
-    100%{transform:rotate(0)}
-}
+
+        /* TEXT ANIMATION */
+
+        .slide h1,
+        .slide h2,
+        .slide p,
+        .slide ul,
+        .skill-card,
+        .project-card,
+        .exp-card {
+            opacity: 0;
+            transform: translateY(35px);
+            animation: fadeUp .8s forwards;
+        }
+
+        .slide.active h1,
+        .slide.active h2 {
+            animation-delay: .1s
+        }
+
+        .slide.active p {
+            animation-delay: .25s
+        }
+
+        .slide.active ul,
+        .slide.active .skill-card,
+        .slide.active .project-card,
+        .slide.active .exp-card {
+            animation-delay: .4s
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        h1,
+        h2 {
+            font-weight: 700
+        }
+
+        p,
+        a {
+            max-width: 900px;
+            text-decoration: none;
+            color: var(--muted)
+        }
+
+
+        /* ========================= */
+
+
+        /* EXPERIENCE – UPGRADED     */
+
+
+        /* ========================= */
+
+        .exp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .exp-card {
+            background: rgba(15, 23, 42, .85);
+            border-radius: 22px;
+            padding: 28px;
+            border: 1px solid rgba(139, 92, 246, .15);
+            transition: .45s;
+        }
+
+        .exp-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 60px rgba(139, 92, 246, .45);
+        }
+
+        .exp-role {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .exp-company {
+            font-size: 14px;
+            color: #c7d2fe;
+            margin-bottom: 6px;
+        }
+
+        .exp-duration {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 10px 0;
+        }
+
+        .tech {
+            display: inline-block;
+            font-size: 12px;
+            padding: 5px 12px;
+            border-radius: 14px;
+            margin: 4px 6px 0 0;
+            background: rgba(139, 92, 246, .2);
+        }
+
+
+        /* ========================= */
+
+
+        /* SKILLS                    */
+
+
+        /* ========================= */
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 26px;
+            margin-top: 30px;
+        }
+
+        .skill-card {
+            background: rgba(15, 23, 42, .85);
+            border-radius: 22px;
+            padding: 26px;
+            text-align: center;
+            border: 1px solid rgba(139, 92, 246, .15);
+            transition: .45s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 60px rgba(139, 92, 246, .45);
+        }
+
+        .skill-card i {
+            font-size: 36px;
+            margin-bottom: 12px;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .skill-card h5 {
+            font-weight: 700
+        }
+
+
+        /* ========================= */
+
+
+        /* PROJECTS                  */
+
+
+        /* ========================= */
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 26px;
+            margin-top: 30px;
+        }
+
+        .project-card {
+            background: rgba(15, 23, 42, .85);
+            border-radius: 22px;
+            padding: 26px;
+            border: 1px solid rgba(139, 92, 246, .15);
+            transition: .45s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-14px);
+            box-shadow: 0 25px 60px rgba(139, 92, 246, .45);
+        }
+
+        .project-title {
+            font-weight: 700
+        }
+
+        .project-desc {
+            font-size: 14px;
+            color: var(--muted)
+        }
+
+        .tech i {
+            margin-right: 6px;
+            font-size: 12px;
+        }
+
+        .about-line:hover .highlight {
+            text-shadow: 0 0 12px rgba(34, 211, 238, .6);
+            transition: .3s;
+        }
+
+
+        /* ========================= */
+
+
+        /* ABOUT – TEXT ANIMATION    */
+
+
+        /* ========================= */
+
+        .about-title {
+            margin-bottom: 20px;
+        }
+
+        .about-line {
+            font-size: 18px;
+            max-width: 900px;
+            margin-top: 16px;
+            line-height: 1.7;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: aboutFade .9s ease forwards;
+        }
+
+        .about-line.delay {
+            animation-delay: .25s;
+        }
+
+        .about-line.delay2 {
+            animation-delay: .45s;
+        }
+
+        .highlight {
+            color: var(--accent2);
+            font-weight: 600;
+        }
+
+        @keyframes aboutFade {
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        .hero-img {
+            width: 260px;
+            /* height:260px; */
+            /* border-radius:50%; */
+            object-fit: cover;
+            filter: grayscale(100%) contrast(1.2);
+            /* border:3px solid rgba(139,92,246,.6); */
+            /* box-shadow:0 0 40px rgba(139,92,246,.45); */
+        }
+
+
+        /* RIGHT SLIDE ANIMATION */
+
+        .hero-img-animate {
+            opacity: 0;
+            transform: translateX(120px) scale(.9);
+            animation: imgRightIn 1.2s cubic-bezier(.22, .61, .36, 1) forwards;
+            animation-delay: .4s;
+        }
+
+        @keyframes imgRightIn {
+            to {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+
+
+        /* HOVER EFFECT */
+
+        .hero-img:hover {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+            transition: .4s;
+        }
+
+        .img-section-bottom-right {
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+        }
+
+        .section-bottom-left {
+            position: absolute;
+            bottom: 0px;
+            color: #4f679f;
+        }
+
+
+        /* add */
+
+        .slide {
+            position: absolute;
+            inset: 0;
+            padding: 140px 10%;
+            opacity: 0;
+            transform: translateY(90px);
+            transition: 1s cubic-bezier(.22, .61, .36, 1);
+            pointer-events: none;
+            overflow-y: auto;
+            /* ✅ enable vertical scroll */
+            overscroll-behavior: contain;
+        }
+
+        .slide::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .slide::-webkit-scrollbar-thumb {
+            background: rgba(139, 92, 246, .4);
+            border-radius: 10px;
+        }
+
+        .skill-card {
+            position: relative;
+        }
+
+
+        /* Hidden state */
+
+        .discription-skill {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: max-height 0.45s ease, opacity 0.35s ease, transform 0.35s ease;
+            margin: 0;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+
+        /* Hover → slide down */
+
+        .skill-card:hover .discription-skill {
+            max-height: 80px;
+            /* enough for 1–2 lines */
+            opacity: 1;
+            transform: translateY(0);
+            margin-top: 8px;
+        }
+
+        .skill-card:hover .discription-skill {
+            transition-delay: 0.08s;
+        }
+
+        .discription-skill {
+            transition: max-height 0.45s ease, opacity 0.3s ease, transform 0.35s ease;
+        }
+
+        .wave-emoji {
+            display: inline-block;
+            font-size: 40px;
+            animation: wave 1.5s infinite;
+            transform-origin: 70% 70%;
+        }
+
+        @keyframes wave {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            15% {
+                transform: rotate(14deg);
+            }
+
+            30% {
+                transform: rotate(-8deg);
+            }
+
+            40% {
+                transform: rotate(14deg);
+            }
+
+            50% {
+                transform: rotate(-4deg);
+            }
+
+            60% {
+                transform: rotate(10deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
