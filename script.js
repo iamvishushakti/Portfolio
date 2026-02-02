@@ -1,56 +1,74 @@
+/* SLIDE CONTROL */
+let current = 0;
+const slides = document.querySelectorAll('.slide');
+let lock = false;
 
-        /* SLIDE CONTROL */
+function show(i){
+    slides[current].classList.remove('active');
+    slides[current].scrollTop = 0;
 
-        let current = 0;
-        const slides = document.querySelectorAll('.slide');
-        let lock = false;
-        function show(i) {
-            slides[current].classList.remove('active');
-            slides[current].scrollTop = 0;
-            current = (i + slides.length) % slides.length;
-            slides[current].classList.add('active');
-        }
+    current = (i + slides.length) % slides.length;
 
-        function goTo(i) {
-            show(i);
-        }
+    slides[current].classList.add('active');
+}
+
+function goTo(i){ show(i); }
+
+/* DESKTOP SCROLL */
+window.addEventListener('wheel', e=>{
+    if(lock) return;
+
+    lock = true;
+
+    if(e.deltaY > 0){
+        show(current+1);
+    } else {
+        show(current-1);
+    }
+
+    setTimeout(()=>lock=false,700);
+},{passive:true});
 
 
-        /* SMART SCROLL + SLIDE */
+/* ✅ MOBILE SWIPE SUPPORT */
+let touchStartY = 0;
+let touchEndY = 0;
 
-        window.addEventListener('wheel', e => {
-            const slide = slides[current];
-            const atTop = slide.scrollTop === 0;
-            const atBottom = Math.ceil(slide.scrollTop + slide.clientHeight) >= slide.scrollHeight;
-            if (lock) return;
-            if (e.deltaY > 0 && atBottom) {
-                lock = true;
-                show(current + 1);
-                setTimeout(() => lock = false, 900);
-            }
-            else if (e.deltaY < 0 && atTop) {
-                lock = true;
-                show(current - 1);
-                setTimeout(() => lock = false, 900);
-            }
-        }
+window.addEventListener("touchstart", e=>{
+    touchStartY = e.changedTouches[0].screenY;
+});
 
-            , {
-                passive: true
-            }
+window.addEventListener("touchend", e=>{
+    if(lock) return;
 
-        );
+    touchEndY = e.changedTouches[0].screenY;
 
-        /* TYPING EFFECT */
+    let diff = touchStartY - touchEndY;
 
-        const nameText = "Vishal Kumar";
-        let i = 0;
-        const target = document.getElementById("typingName");
-        (function type() {
-            if (i < nameText.length) {
-                target.textContent += nameText.charAt(i++);
-                setTimeout(type, 120);
-            }
-        }
+    if(Math.abs(diff) < 50) return; // ignore small swipe
 
-        )();
+    lock = true;
+
+    if(diff > 0){
+        // swipe up
+        show(current+1);
+    } else {
+        // swipe down
+        show(current-1);
+    }
+
+    setTimeout(()=>lock=false,700);
+});
+
+
+/* TYPING EFFECT */
+const nameText="Vishal Kumar";
+let i=0;
+const target=document.getElementById("typingName");
+
+(function type(){
+    if(i<nameText.length){
+        target.textContent+=nameText.charAt(i++);
+        setTimeout(type,120);
+    }
+})();
