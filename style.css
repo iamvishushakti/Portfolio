@@ -430,9 +430,9 @@
             transform: translateY(90px);
             transition: 1s cubic-bezier(.22, .61, .36, 1);
             pointer-events: none;
-            overflow-y: auto;
+            /* overflow-y: auto; */
             /* ✅ enable vertical scroll */
-            overscroll-behavior: contain;
+            /* overscroll-behavior: contain; */
         }
 
         .slide::-webkit-scrollbar {
@@ -448,6 +448,11 @@
             position: relative;
         }
 
+        .skill-grid{
+                overflow-y: auto;
+                    /* ✅ enable vertical scroll */
+                    overscroll-behavior: contain;
+        }
 
         /* Hidden state */
 
