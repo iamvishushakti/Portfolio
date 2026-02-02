@@ -1,0 +1,226 @@
+:root {
+    --accent: #8b5cf6;
+    --accent2: #22d3ee;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --bg: #020617;
+}
+
+/* GLOBAL */
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'Fira Code', monospace;
+    color: var(--text);
+    background: var(--bg);
+}
+
+/* HEADER */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(2, 6, 23, .7);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 12px 40px rgba(139, 92, 246, .25);
+}
+
+.nav-inner {
+    max-width: 1400px;
+    margin: auto;
+    padding: 14px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.brand {
+    font-size: 22px;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.cursor {
+    color: var(--accent2);
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%,50%{opacity:1}
+    51%,100%{opacity:0}
+}
+
+.nav-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.nav-menu button {
+    font-weight: 600;
+    background: rgba(139, 92, 246, .15);
+    border: none;
+    color: var(--text);
+    padding: 6px 12px;
+    font-size: 14px;
+}
+
+.nav-menu button:hover {
+    background: rgba(139, 92, 246, .35)
+}
+
+/* SLIDES */
+.wrapper {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    padding: clamp(90px,12vh,140px) 8%;
+    opacity: 0;
+    transform: translateY(90px);
+    transition: 1s cubic-bezier(.22,.61,.36,1);
+    pointer-events: none;
+    overflow-y: auto;
+}
+
+.slide.active {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+}
+
+/* SCROLLBAR */
+.slide::-webkit-scrollbar { width:6px; }
+.slide::-webkit-scrollbar-thumb {
+    background: rgba(139,92,246,.4);
+    border-radius: 10px;
+}
+
+/* BACKGROUNDS */
+.home{background: radial-gradient(circle at top left,#1e1b4b,transparent 45%),#020617;}
+.about{background: radial-gradient(circle at bottom right,#164e63,transparent 45%),#020617;}
+.experience{background: radial-gradient(circle at top right,#312e81,transparent 45%),#020617;}
+.skills{background: radial-gradient(circle at center,#0f172a,transparent 45%),#020617;}
+.projects{background: radial-gradient(circle at top left,#3f1d4d,transparent 45%),#020617;}
+.contact{background: radial-gradient(circle at bottom left,#052e16,transparent 45%),#020617;}
+
+/* TEXT ANIMATION */
+.slide h1,.slide h2,.slide p,.slide ul,
+.skill-card,.project-card,.exp-card{
+    opacity:0;
+    transform:translateY(35px);
+    animation:fadeUp .8s forwards;
+}
+
+@keyframes fadeUp{
+    to{opacity:1;transform:none}
+}
+
+/* GRIDS */
+.exp-grid,.skill-grid,.project-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:26px;
+    margin-top:30px;
+}
+
+/* CARDS */
+.exp-card,.skill-card,.project-card{
+    background:rgba(15,23,42,.85);
+    border-radius:22px;
+    padding:26px;
+    border:1px solid rgba(139,92,246,.15);
+    transition:.45s;
+}
+
+.exp-card:hover,
+.skill-card:hover,
+.project-card:hover{
+    transform:translateY(-12px);
+    box-shadow:0 25px 60px rgba(139,92,246,.45);
+}
+
+/* SKILLS HOVER DESC */
+.discription-skill{
+    max-height:0;
+    overflow:hidden;
+    opacity:0;
+    transform:translateY(-10px);
+    transition:.4s;
+    font-size:13px;
+    color:var(--muted);
+}
+
+.skill-card:hover .discription-skill{
+    max-height:80px;
+    opacity:1;
+    transform:none;
+    margin-top:8px;
+}
+
+/* HERO */
+.hero-img{
+    width:260px;
+    object-fit:cover;
+    filter:grayscale(100%) contrast(1.2);
+}
+
+.hero-img:hover{
+    filter:grayscale(0);
+    transform:scale(1.05);
+    transition:.4s;
+}
+
+/* WAVE */
+.wave-emoji{
+    display:inline-block;
+    font-size:40px;
+    animation:wave 1.5s infinite;
+    transform-origin:70% 70%;
+}
+
+@keyframes wave{
+    0%{transform:rotate(0)}
+    15%{transform:rotate(14deg)}
+    30%{transform:rotate(-8deg)}
+    40%{transform:rotate(14deg)}
+    50%{transform:rotate(-4deg)}
+    60%{transform:rotate(10deg)}
+    100%{transform:rotate(0)}
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    h1{font-size:26px}
+    h2{font-size:22px}
+
+    .nav-inner{
+        padding:12px 16px;
+    }
+
+    .brand{
+        font-size:18px;
+    }
+
+    .exp-grid,
+    .skill-grid,
+    .project-grid{
+        grid-template-columns:1fr;
+    }
+
+    .section-bottom-left{
+        position:relative;
+        margin-top:30px;
+    }
+}
