@@ -1,19 +1,19 @@
 
         /* SLIDE CONTROL */
 
-        // let current = 0;
-        // const slides = document.querySelectorAll('.slide');
-        // let lock = false;
-        // function show(i) {
-        //     slides[current].classList.remove('active');
-        //     slides[current].scrollTop = 0;
-        //     current = (i + slides.length) % slides.length;
-        //     slides[current].classList.add('active');
-        // }
+        let current = 0;
+        const slides = document.querySelectorAll('.slide');
+        let lock = false;
+        function show(i) {
+            slides[current].classList.remove('active');
+            slides[current].scrollTop = 0;
+            current = (i + slides.length) % slides.length;
+            slides[current].classList.add('active');
+        }
 
-        // function goTo(i) {
-        //     show(i);
-        // }
+        function goTo(i) {
+            show(i);
+        }
 
 
         /* SMART SCROLL + SLIDE */
