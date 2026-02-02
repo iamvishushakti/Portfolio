@@ -2,625 +2,757 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<title>Vishal Kumar | Portfolio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Vishal Kumar | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&display=swap" rel="stylesheet">
 
-<style>
-:root{
---accent:#8b5cf6;
---accent2:#22d3ee;
---text:#e5e7eb;
---muted:#9ca3af;
---bg:#020617;
-}
-
-body{
-margin:0;
-height:100vh;
-overflow:hidden;
-font-family:'Fira Code',monospace;
-color:var(--text);
-background:var(--bg);
-}
-
-span.highlight {
-    color: #8166f5;
-}
-
-/* HEADER */
-header{
-position:fixed;
-top:0;
-width:100%;
-z-index:100;
-background:rgba(2,6,23,.7);
-backdrop-filter:blur(16px);
-box-shadow:0 12px 40px rgba(139,92,246,.25);
-}
-
-.nav-inner{
-max-width:1400px;
-margin:auto;
-padding:14px 32px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.brand{
-font-size:22px;
-font-weight:700;
-background:linear-gradient(90deg,var(--accent),var(--accent2));
--webkit-background-clip:text;
-color:transparent;
-}
-
-.cursor{
-color:var(--accent2);
-animation:blink 1s infinite;
-}
-@keyframes blink{50%{opacity:0}}
-
-.nav-menu button{
-margin-left:12px;
-font-weight:600;
-background:rgba(139,92,246,.15);
-border:none;
-color:var(--text);
-padding:6px 12px;
-border-radius:8px;
-}
-.nav-menu button:hover{
-background:rgba(139,92,246,.35);
-}
-
-/* SLIDES */
-.wrapper{
-height:100vh;
-width:100vw;
-position:relative;
-}
-
-.slide{
-position:absolute;
-inset:0;
-padding:140px 10%;
-opacity:0;
-transform:translateY(90px);
-transition:1s cubic-bezier(.22,.61,.36,1);
-pointer-events:none;
-/* overflow-y:auto; */
-}
-
-.slide.active{
-opacity:1;
-/* transform:none; */
-pointer-events:auto;
-}
-
-/* BACKGROUNDS */
-.home{background:radial-gradient(circle at top left,#1e1b4b,transparent 45%),#020617;}
-.about{background:radial-gradient(circle at bottom right,#164e63,transparent 45%),#020617;}
-.experience{background:radial-gradient(circle at top right,#312e81,transparent 45%),#020617;}
-.skills{background:radial-gradient(circle at center,#0f172a,transparent 45%),#020617;}
-.projects{background:radial-gradient(circle at top left,#3f1d4d,transparent 45%),#020617;}
-.contact{background:radial-gradient(circle at bottom left,#052e16,transparent 45%),#020617;}
-
-/* TEXT ANIMATION */
-.slide h1,.slide h2,.slide p,
-.skill-card,.project-card,.exp-card{
-opacity:0;
-transform:translateY(35px);
-animation:fadeUp .8s forwards;
-}
-.slide.active h1,.slide.active h2{animation-delay:.1s}
-.slide.active p{animation-delay:.25s}
-.slide.active .skill-card,
-.slide.active .project-card,
-.slide.active .exp-card{animation-delay:.4s}
-
-@keyframes fadeUp{to{opacity:1;transform:none}}
-
-h1,h2{font-weight:700}
-p,a{max-width:900px;text-decoration:none;color:var(--muted)}
-
-/* EXPERIENCE */
-.exp-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:30px;
-margin-top:30px;
-}
-
-.exp-card{
-background:rgba(15,23,42,.85);
-border-radius:22px;
-padding:28px;
-border:1px solid rgba(139,92,246,.15);
-transition:.45s;
-}
-.exp-card:hover{
-transform:translateY(-12px);
-box-shadow:0 25px 60px rgba(139,92,246,.45);
-}
-
-.exp-role{font-size:18px;font-weight:700}
-.exp-company{font-size:14px;color:#c7d2fe;margin-bottom:6px}
-.exp-duration{font-size:20px;font-weight:700;color:var(--accent2);margin:10px 0}
-
-.tech{
-display:inline-block;
-font-size:12px;
-padding:5px 12px;
-border-radius:14px;
-margin:4px 6px 0 0;
-background:rgba(139,92,246,.2);
-}
-
-/* SKILLS FIX */
-.slide.skills{
-overflow:hidden!important;
-}
-
-.skill-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:26px;
-margin-top:30px;
-max-height:65vh;
-overflow-y:auto;
-/* padding-right:6px; */
-  padding:20px;
-}
-
-/* Beautiful scrollbar */
-.skill-grid::-webkit-scrollbar{width:8px;}
-.skill-grid::-webkit-scrollbar-track{
-background:rgba(255,255,255,.05);
-border-radius:10px;
-}
-.skill-grid::-webkit-scrollbar-thumb{
-background:linear-gradient(180deg,#8b5cf6,#22d3ee);
-border-radius:10px;
-box-shadow:0 0 10px rgba(139,92,246,.7);
-}
-
-.skill-card{
-background:rgba(15,23,42,.85);
-border-radius:22px;
-padding:26px;
-text-align:center;
-border:1px solid rgba(139,92,246,.15);
-}
-
-.discription-skill{
-max-height:0;
-overflow:hidden;
-opacity:0;
-transition:.4s;
-}
-.skill-card:hover .discription-skill{
-max-height:80px;
-opacity:1;
-margin-top:8px;
-}
-
-/* PROJECTS */
-.project-grid{
-display:flex;
-/* grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); */
-gap:26px;
-margin-top:30px;
-/* overflow-x: scroll; */
-padding:20px;    
-}
-
-.project-card{
-background:rgba(15,23,42,.85);
-border-radius:22px;
-padding:26px;
-border:1px solid rgba(139,92,246,.15);
-    min-width:400px;
-    height:300px;
-}
-
-/* SOCIAL */
-.section-bottom-left{
-position:absolute;
-bottom:0;
-color:#4f679f;
-  padding-bottom:90px;
-}
-
-.wave-emoji{
-display:inline-block;
-font-size:40px;
-animation:wave 1.5s infinite;
-}
-@keyframes wave{
-15%{transform:rotate(14deg)}
-30%{transform:rotate(-8deg)}
-40%{transform:rotate(14deg)}
-}
-
-    /* TABLET + MOBILE */
-@media (max-width: 768px){
-    .nav-menu{
-        display: none;
-    }
-}
-</style>
+    <style>
+         :root {
+            --accent: #8b5cf6;
+            --accent2: #22d3ee;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --bg: #020617;
+        }
+        
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Fira Code', monospace;
+            color: var(--text);
+            background: var(--bg);
+        }
+        
+        span.highlight {
+            color: #8166f5;
+        }
+        /* HEADER */
+        
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(2, 6, 23, .7);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 12px 40px rgba(139, 92, 246, .25);
+        }
+        
+        h2 {
+            color: #64acb1;
+        }
+        
+        .nav-inner {
+            max-width: 1400px;
+            margin: auto;
+            padding: 14px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .brand {
+            font-size: 22px;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        
+        .cursor {
+            color: var(--accent2);
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            50% {
+                opacity: 0
+            }
+        }
+        
+        .nav-menu button {
+            margin-left: 12px;
+            font-weight: 600;
+            background: rgba(139, 92, 246, .15);
+            border: none;
+            color: var(--text);
+            padding: 6px 12px;
+            border-radius: 8px;
+        }
+        
+        .nav-menu button:hover {
+            background: rgba(139, 92, 246, .35);
+        }
+        /* SLIDES */
+        
+        .wrapper {
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+        }
+        
+        .slide {
+            position: absolute;
+            inset: 0;
+            padding: 140px 10%;
+            opacity: 0;
+            transform: translateY(90px);
+            transition: 1s cubic-bezier(.22, .61, .36, 1);
+            pointer-events: none;
+            /* overflow-y:auto; */
+        }
+        
+        .slide.active {
+            opacity: 1;
+            transform: none;
+            pointer-events: auto;
+        }
+        /* BACKGROUNDS */
+        
+        .home {
+            background: radial-gradient(circle at top left, #1e1b4b, transparent 45%), #020617;
+        }
+        
+        .about {
+            background: radial-gradient(circle at bottom right, #164e63, transparent 45%), #020617;
+        }
+        
+        .experience {
+            background: radial-gradient(circle at top right, #312e81, transparent 45%), #020617;
+        }
+        
+        .skills {
+            background: radial-gradient(circle at center, #0f172a, transparent 45%), #020617;
+        }
+        
+        .projects {
+            background: radial-gradient(circle at top left, #3f1d4d, transparent 45%), #020617;
+        }
+        
+        .contact {
+            background: radial-gradient(circle at bottom left, #052e16, transparent 45%), #020617;
+        }
+        /* TEXT ANIMATION */
+        
+        .slide h1,
+        .slide h2,
+        .slide p,
+        .skill-card,
+        .project-card,
+        .exp-card {
+            opacity: 0;
+            transform: translateY(35px);
+            animation: fadeUp .8s forwards;
+        }
+        
+        .slide.active h1,
+        .slide.active h2 {
+            animation-delay: .1s
+        }
+        
+        .slide.active p {
+            animation-delay: .25s
+        }
+        
+        .slide.active .skill-card,
+        .slide.active .project-card,
+        .slide.active .exp-card {
+            animation-delay: .4s
+        }
+        
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+        
+        h1,
+        h2 {
+            font-weight: 700
+        }
+        
+        p,
+        a {
+            max-width: 900px;
+            text-decoration: none;
+            color: var(--muted)
+        }
+        /* EXPERIENCE */
+        
+        .exp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .exp-card {
+            background: rgba(15, 23, 42, .85);
+            border-radius: 22px;
+            padding: 28px;
+            border: 1px solid rgba(139, 92, 246, .15);
+            transition: .45s;
+        }
+        
+        .exp-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 60px rgba(139, 92, 246, .45);
+        }
+        
+        .exp-role {
+            font-size: 18px;
+            font-weight: 700
+        }
+        
+        .exp-company {
+            font-size: 14px;
+            color: #c7d2fe;
+            margin-bottom: 6px
+        }
+        
+        .exp-duration {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 10px 0
+        }
+        
+        .tech {
+            display: inline-block;
+            font-size: 13px;
+            padding: 5px 12px;
+            border-radius: 14px;
+            margin: 4px 6px 0 0;
+            background: rgb(11 9 31);
+        }
+        /* SKILLS FIX */
+        
+        .slide.skills {
+            overflow: hidden!important;
+        }
+        
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 26px;
+            margin-top: 30px;
+            max-height: 65vh;
+            overflow-y: auto;
+            /* padding-right:6px; */
+            padding: 20px;
+        }
+        /* Beautiful scrollbar */
+        
+        .skill-grid::-webkit-scrollbar {
+            width: 0px;
+        }
+        
+        .skill-grid::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, .05);
+            border-radius: 10px;
+        }
+        
+        .skill-grid::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #8b5cf6, #22d3ee);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(139, 92, 246, .7);
+        }
+        
+        .skill-card {
+            background: rgba(15, 23, 42, .85);
+            border-radius: 22px;
+            padding: 26px;
+            text-align: center;
+            border: 1px solid rgba(139, 92, 246, .15);
+        }
+        
+        .discription-skill {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: .4s;
+        }
+        
+        .skill-card:hover .discription-skill {
+            max-height: 80px;
+            opacity: 1;
+            margin-top: 8px;
+        }
+        /* PROJECTS */
+        
+        .project-grid {
+            display: flex;
+            gap: 26px;
+            margin-top: 30px;
+            overflow-x: auto;
+            /* scroll ki jagah auto better */
+            overflow-y: hidden;
+            /* vertical scrollbar remove */
+            padding: 20px;
+        }
+        /* Horizontal scrollbar */
+        
+        .project-grid::-webkit-scrollbar {
+            height: 6px;
+            /* bottom scrollbar thickness */
+        }
+        /* Track */
+        
+        .project-grid::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, .05);
+            border-radius: 10px;
+        }
+        /* Thumb */
+        
+        .project-grid::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #8b5cf6, #22d3ee);
+            border-radius: 10px;
+        }
+        
+        .project-card {
+            background: rgba(15, 23, 42, .85);
+            border-radius: 22px;
+            padding: 26px;
+            border: 1px solid rgba(139, 92, 246, .15);
+            min-width: 650px;
+            /* height: 300px; */
+        }
+        
+        .project-title,
+        .exp-role {
+            font-weight: bold;
+            color: #bd5dea;
+        }
+        
+        .project-desc {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #c9c2fb;
+        }
+        /* SOCIAL */
+        
+        .section-bottom-left {
+            position: absolute;
+            bottom: 0;
+            color: #4f679f;
+            padding-bottom: 90px;
+        }
+        
+        .wave-emoji {
+            display: inline-block;
+            font-size: 40px;
+            animation: wave 1.5s infinite;
+        }
+        /* custom */
+        
+        .discription-skill {
+            color: #ddd;
+            font-size: 15px;
+        }
+        
+        .skill-card h5 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #6c6091;
+        }
+        
+        .skill-card i {
+            font-size: 22px;
+            font-weight: 700;
+            color: #7a80bb;
+        }
+        
+        @keyframes wave {
+            15% {
+                transform: rotate(14deg)
+            }
+            30% {
+                transform: rotate(-8deg)
+            }
+            40% {
+                transform: rotate(14deg)
+            }
+        }
+        /* TABLET + MOBILE */
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-<div class="nav-inner">
-<div class="brand">
-<i class="fa-solid fa-face-smile" style="color:#FFD43B;"></i> 
-<span id="typingName"></span><span class="cursor">|</span>
-</div>
+    <header>
+        <div class="nav-inner">
+            <div class="brand">
+                <i class="fa-solid fa-face-smile" style="color:#FFD43B;"></i>
+                <span id="typingName"></span><span class="cursor">|</span>
+            </div>
 
-<div class="nav-menu">
-<button onclick="goTo(0)"><i class="fas fa-home"></i>  Home</button>
-<button onclick="goTo(1)"><i class="fas fa-comments"></i>  About</button>
-<button onclick="goTo(2)"><i class="fas fa-clock"></i>  Experience</button>
-<button onclick="goTo(3)"><i class="fa-solid fa-code"></i>  Skills</button>
-<button onclick="goTo(4)"><i class="fa-solid fa-diagram-project"></i>  Projects</button>
-<button onclick="goTo(5)"><i class="far fa-envelope"></i>  Contact</button>
-</div>
-</div>
-</header>
+            <div class="nav-menu">
+                <button onclick="goTo(0)"><i class="fas fa-home"></i>  Home</button>
+                <button onclick="goTo(1)"><i class="fas fa-comments"></i>  About</button>
+                <button onclick="goTo(2)"><i class="fas fa-clock"></i>  Experience</button>
+                <button onclick="goTo(3)"><i class="fa-solid fa-code"></i>  Skills</button>
+                <button onclick="goTo(4)"><i class="fa-solid fa-diagram-project"></i>  Projects</button>
+                <button onclick="goTo(5)"><i class="far fa-envelope"></i>  Contact</button>
+            </div>
+        </div>
+    </header>
 
-<div class="wrapper">
+    <div class="wrapper">
 
-<!-- HOME -->
-<section class="slide home active">
-<div class="row align-items-center">
-<div class="col-md-7">
-<h1>Hello, I’m Vishal Kumar <span class="wave-emoji">👋</span></h1>
-<p class="fs-5 mt-3">
-Full Stack Developer • WHMCS Specialist • SQL Expert <br>
-Building <strong>scalable, secure & business-critical</strong> systems.
-</p>
-</div>
+        <!-- HOME -->
+        <section class="slide home active">
+            <div class="row align-items-center">
+                <div class="col-md-7">
+                    <h1>Hello, I’m Vishal Kumar <span class="wave-emoji">👋</span></h1>
+                    <p class="fs-5 mt-3">
+                        Full Stack Developer • WHMCS Specialist • SQL Expert <br> Building <strong>scalable, secure & business-critical</strong> systems.
+                    </p>
+                </div>
 
-<div class="col-md-5 section-bottom-left">
-<a href='' style="display:block;"><i class="fa-brands fa-github"></i>  @iamvisushakti</a>
-<a href='' style="display:block;"><i class="fa-brands fa-linkedin"></i>  @iamvisushakti</a>
-<a href=''><i class="fa-brands fa-youtube"></i>  Online Coding Classes</a>
-</div>
-</div>
-</section>
+                <div class="col-md-5 section-bottom-left">
+                    <a href='https://github.com/iamvishushakti' style="display:block;"><i class="fa-brands fa-github" style="color: #ddd;"></i>  @iamvisushakti</a>
+                    <a href='https://www.linkedin.com/in/iamvishushakti/' style="display:block;"><i class="fa-brands fa-linkedin" style="color: #505edc;"></i>  @iamvisushakti</a>
+                    <a href='https://www.youtube.com/@onlinecodingclasses'><i class="fa-brands fa-youtube" style="color: red;"></i>  Online Coding Classes</a>
+                </div>
+            </div>
+        </section>
 
-<!-- ABOUT -->
-<section class="slide about">
-            <h2 class="about-title"><i class="fas fa-comments fa-shake"></i>  About Me</h2>
+        <!-- ABOUT -->
+        <section class="slide about">
+            <h2 class="about-title"><i class="fas fa-comments fa-shake"></i> About Me</h2>
 
             <p class="about-line">
                 I’m a <span class="highlight">Web Developer</span> with 3+ years of experience and strong expertise in
-                <span class="highlight">backend development</span>, <span class="highlight">SQL databases</span>,
-                and <span class="highlight">SaaS platforms</span>.
+                <span class="highlight">backend development</span>, <span class="highlight">SQL databases</span>, and <span class="highlight">SaaS platforms</span>.
             </p>
 
             <p class="about-line delay">
                 I specialize in <span class="highlight">WHMCS customization</span>, custom module development,
-                <span class="highlight">billing automation</span>, <span class="highlight">SQL optimization</span>,
-                and <span class="highlight">API integrations</span>.
+                <span class="highlight">billing automation</span>, <span class="highlight">SQL optimization</span>, and <span class="highlight">API integrations</span>.
             </p>
 
             <p class="about-line delay2">
-                I enjoy solving complex business problems, building scalable systems,
-                and delivering <strong>secure, maintainable, and performance-driven</strong> solutions.
+                I enjoy solving complex business problems, building scalable systems, and delivering <strong>secure, maintainable, and performance-driven</strong> solutions.
             </p>
         </section>
 
-<!-- EXPERIENCE -->
-<section class="slide experience">
-<h2><i class="fas fa-clock fa-spin"></i>  Experience</h2>
+        <!-- EXPERIENCE -->
+        <section class="slide experience">
+            <h2><i class="fas fa-clock fa-spin"></i> Experience</h2>
 
-<div class="exp-grid">
+            <div class="exp-grid">
 
-<div class="exp-card">
-<div class="exp-role">Full Stack Developer</div>
-<div class="exp-company">SaaS Product Company</div>
-<div class="exp-duration" data-months="24">0 Months</div>
-<span class="tech">Node.js</span>
-<span class="tech">PHP</span>
-<span class="tech">MySQL</span>
-<span class="tech">REST APIs</span>
-</div>
+                <div class="exp-card">
+                    <div class="exp-role">SR Php Developer (May-2023)<i class="fa-regular fa-circle" style="color: #63E6BE;"></i></div>
+                    <div class="exp-company">Shine Dezign Infonet Pvt. Ltd. </div>
+                    <div class="exp-duration" startDay="31-05-2023">0 Months</div>
+                    <span class="tech"><i class="fa-brands fa-php"></i> PHP</span>
+                    <span class="tech"><i class="fa-brands fa-whmcs"></i> WHMCS</span>
+                    <br>
+                    <a href="https://www.linkedin.com/company/shine-dezign-infonet-pvt-ltd/posts/?feedView=all" style=" padding-left: 10px;"><i class="fa-brands fa-linkedin" style="color: #505edc; margin-top: 10px; font-size: 20px; "></i></a>
+                    <a href="https://shinedezigninfonet.com/" style=" padding-left: 10px;"><i class="fa-solid fa-globe" style="color: #505edc; margin-top: 10px; font-size: 20px; "></i></a>
 
-<div class="exp-card">
-<div class="exp-role">Backend Developer</div>
-<div class="exp-company">Enterprise Solutions</div>
-<div class="exp-duration" data-months="18">0 Months</div>
-<span class="tech">Node.js</span>
-<span class="tech">MongoDB</span>
-<span class="tech">Authentication</span>
-<span class="tech">Integrations</span>
-</div>
-
-</div>
-</section>
-
-<!-- SKILLS -->
-<section class="slide skills">
-<h2><i class="fa-solid fa-code fa-beat-fade"></i>  Skills</h2>
-
-<div class="skill-grid">
-<div class="skill-card"><i class="fa-brands fa-html5"></i> <h5>HTML</h5>
-<p class="discription-skill">Smarty in (WHMCS) | Ejs in NodeJS</p></div>
-
-<div class="skill-card"><i class="fa-brands fa-css3-alt"></i> <h5>CSS</h5>
-<p class="discription-skill">CSS | Bootstrap Basic</p></div>
-
-<div class="skill-card"><i class="fa-brands fa-square-js"></i> <h5>JavaScript</h5>
-<p class="discription-skill">JS | JQuery</p></div>
-
-<div class="skill-card"><i class="fa-brands fa-node-js"></i> <h5>Node.js</h5>
-<p class="discription-skill">Express | JWT</p></div>
-
-<div class="skill-card"><i class="fa-brands fa-php"></i> <h5>PHP</h5>
-<p class="discription-skill">3year+ Experience</p></div>
-
-<div class="skill-card"><i class="fa-brands fa-react"></i> <h5>React</h5></div>
-
-<div class="skill-card"><i class="fa-solid fa-database"></i> <h5>SQL | MongoDB</h5>
-<p class="discription-skill">SQL 9 months</p></div>
-</div>
-</section>
-
-<!-- PROJECTS -->
-<section class="slide projects">
-            <h2><i class="fa-solid fa-diagram-project fa-fade"></i>  Projects</h2>
-
-            <div class="project-grid">
-
-                <!-- Project 1 -->
-                <div class="project-card ">
-                    <div class="project-title">Invoice Automation System</div>
-                    <div class="project-desc">
-                        Billing, tax calculation, compliance automation & reporting system.
-                    </div>
-
-                    <div class="mt-3">
-                        <span class="tech"><i class="fa-brands fa-node-js"></i> Node.js</span>
-                        <span class="tech"><i class="fa-brands fa-php"></i> PHP</span>
-                        <span class="tech"><i class="fa-solid fa-database"></i> MySQL</span>
-                        <span class="tech"><i class="fa-solid fa-plug"></i> REST API</span>
-                        <span class="tech"><i class="fa-solid fa-file-invoice"></i> VeriFactu</span>
-                    </div>
                 </div>
 
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <div class="project-title">CRM Management Platform</div>
-                    <div class="project-desc">
-                        Role-based CRM with analytics, lead tracking & dashboards.
-                    </div>
+                <div class="exp-card">
+                    <div class="exp-role">Trainee- Software Engineer (Sep2022 - May2023)</div>
+                    <div class="exp-company">Emicon Advisory Services LLP</div>
+                    <div class="exp-duration" startDay="01-09-2022" lastDate="31-05-2023">0 Months</div>
+                    <span class="tech"><i class="fa-solid fa-code"></i> SQL</span>
+                    <span class="tech"><i class="fa-solid fa-code"></i> PL SQL</span>
+                    <br>
+                    <a href="https://www.linkedin.com/company/emicon-advisory-services-llp/posts/?feedView=alll" style=" padding-left: 10px;"><i class="fa-brands fa-linkedin" style="color: #505edc; margin-top: 10px; font-size: 20px; "></i></a>
+                    <a href="https://www.emiconglobal.com/" style=" padding-left: 10px;"><i class="fa-solid fa-globe" style="color: #505edc; margin-top: 10px; font-size: 20px; "></i></a>
 
-                    <div class="mt-3">
-                        <span class="tech"><i class="fa-brands fa-node-js"></i> Node.js</span>
-                        <span class="tech"><i class="fa-solid fa-leaf"></i> MongoDB</span>
-                        <span class="tech"><i class="fa-brands fa-react"></i> React</span>
-                        <span class="tech"><i class="fa-solid fa-key"></i> JWT Auth</span>
-                        <span class="tech"><i class="fa-solid fa-chart-line"></i> Analytics</span>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card ">
-                    <div class="project-title">SaaS Subscription Platform</div>
-                    <div class="project-desc">
-                        Subscription billing, plans & payment integration system.
-                    </div>
-
-                    <div class="mt-3">
-                        <span class="tech"><i class="fa-brands fa-node-js"></i> Node.js</span>
-                        <span class="tech"><i class="fa-brands fa-stripe"></i> Stripe</span>
-                        <span class="tech"><i class="fa-solid fa-database"></i> MySQL</span>
-                        <span class="tech"><i class="fa-solid fa-clock"></i> Cron Jobs</span>
-                        <span class="tech"><i class="fa-solid fa-user-shield"></i> RBAC</span>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <div class="project-title">SaaS Subscription Platform</div>
-                    <div class="project-desc">
-                        Subscription billing, plans & payment integration system.
-                    </div>
-
-                    <div class="mt-3">
-                        <span class="tech"><i class="fa-brands fa-node-js"></i> Node.js</span>
-                        <span class="tech"><i class="fa-brands fa-stripe"></i> Stripe</span>
-                        <span class="tech"><i class="fa-solid fa-database"></i> MySQL</span>
-                        <span class="tech"><i class="fa-solid fa-clock"></i> Cron Jobs</span>
-                        <span class="tech"><i class="fa-solid fa-user-shield"></i> RBAC</span>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <div class="project-title">SaaS Subscription Platform</div>
-                    <div class="project-desc">
-                        Subscription billing, plans & payment integration system.
-                    </div>
-
-                    <div class="mt-3">
-                        <span class="tech"><i class="fa-brands fa-node-js"></i> Node.js</span>
-                        <span class="tech"><i class="fa-brands fa-stripe"></i> Stripe</span>
-                        <span class="tech"><i class="fa-solid fa-database"></i> MySQL</span>
-                        <span class="tech"><i class="fa-solid fa-clock"></i> Cron Jobs</span>
-                        <span class="tech"><i class="fa-solid fa-user-shield"></i> RBAC</span>
-                    </div>
-                </div>
-
-
-                <!-- Project 3 -->
-                <div class="project-card ">
-                    <div class="project-title">SaaS Subscription Platform</div>
-                    <div class="project-desc">
-                        Subscription billing, plans & payment integration system.
-                    </div>
-
-                    <div class="mt-3">
-                        <span class="tech"><i class="fa-brands fa-node-js"></i> Node.js</span>
-                        <span class="tech"><i class="fa-brands fa-stripe"></i> Stripe</span>
-                        <span class="tech"><i class="fa-solid fa-database"></i> MySQL</span>
-                        <span class="tech"><i class="fa-solid fa-clock"></i> Cron Jobs</span>
-                        <span class="tech"><i class="fa-solid fa-user-shield"></i> RBAC</span>
-                    </div>
-                </div>
-
-
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <div class="project-title">SaaS Subscription Platform</div>
-                    <div class="project-desc">
-                        Subscription billing, plans & payment integration system.
-                    </div>
-
-                    <div class="mt-3">
-                        <span class="tech"><i class="fa-brands fa-node-js"></i> Node.js</span>
-                        <span class="tech"><i class="fa-brands fa-stripe"></i> Stripe</span>
-                        <span class="tech"><i class="fa-solid fa-database"></i> MySQL</span>
-                        <span class="tech"><i class="fa-solid fa-clock"></i> Cron Jobs</span>
-                        <span class="tech"><i class="fa-solid fa-user-shield"></i> RBAC</span>
-                    </div>
                 </div>
 
             </div>
         </section>
 
-<!-- CONTACT -->
-<section class="slide contact">
-            <h2 class="contact-title">Get In Touch <i class="fa-solid fa-message fa-fade" style="color: #af86d0; "></i> 
+        <!-- SKILLS -->
+        <section class="slide skills">
+            <h2><i class="fa-solid fa-code fa-beat-fade"></i> Skills</h2>
+
+            <div class="skill-grid">
+                <div class="skill-card"><i class="fa-brands fa-html5"></i>
+                    <h5>HTML</h5>
+                    <p class="discription-skill">Smarty in (WHMCS) | Ejs in NodeJS</p>
+                </div>
+
+                <div class="skill-card"><i class="fa-brands fa-css3-alt"></i>
+                    <h5>CSS</h5>
+                    <p class="discription-skill">CSS | Bootstrap Basic</p>
+                </div>
+
+                <div class="skill-card"><i class="fa-brands fa-square-js"></i>
+                    <h5>JavaScript</h5>
+                    <p class="discription-skill">JS | JQuery</p>
+                </div>
+
+                <div class="skill-card"><i class="fa-brands fa-node-js"></i>
+                    <h5>Node.js</h5>
+                    <p class="discription-skill">Express | JWT</p>
+                </div>
+
+                <div class="skill-card"><i class="fa-brands fa-php"></i>
+                    <h5>PHP</h5>
+                    <p class="discription-skill">3year+ Experience</p>
+                </div>
+
+                <div class="skill-card"><i class="fa-brands fa-react fa-spin"></i>
+                    <h5>React</h5>
+                </div>
+
+                <div class="skill-card"><i class="fa-solid fa-database"></i>
+                    <h5>SQL | MongoDB</h5>
+                    <p class="discription-skill">SQL 9 months</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="slide projects">
+            <h2><i class="fa-solid fa-diagram-project fa-fade"></i> Projects</h2>
+
+            <div class="project-grid">
+
+
+
+                <!-- Project 3 -->
+                <div class="project-card ">
+                    <div class="project-title"><i class="fa-regular fa-circle-dot" style="color: #bd5dea;"></i> Node.js File-Based Data API</div>
+                    <div class="project-desc">
+                        This is a simple backend API project built using Node.js, Express, and the File System (fs) module. In this project, a JSON file is used like a database to store data, from which data can be read and written. Multiple routes are created to perform CRUD
+                        (Create, Read, Update, Delete) operations.
+                    </div>
+
+                    <div class="mt-3">
+                        <span class="tech"><i class="fa-brands fa-node-js"></i> Node.js</span>
+                        <span class="tech"><i class="fa-solid fa-share-nodes"></i> Express</span>
+                        <span class="tech"><i class="fa-solid fa-file"></i> FileSystem</span>
+                    </div>
+                    <a href='' style="display:block; margin-top: 20px;"><i class="fa-brands fa-github" style="color: #ddd;"></i> Project Code</a>
+                </div>
+
+                <div class="project-card ">
+                    <div class="project-title"><i class="fa-regular fa-circle-dot" style="color: #bd5dea;"></i> MongoDB-Based Backend API</div>
+                    <div class="project-desc">
+                        A backend API developed with Node.js and Express, connected to a MongoDB database for data storage. The project allows users to perform CRUD operations through RESTful routes. It showcases skills in database connectivity, routing, and server-side development.
+                    </div>
+
+                    <div class="mt-3">
+                        <span class="tech"><i class="fa-brands fa-node-js"></i> Node.js</span>
+                        <span class="tech"><i class="fa-solid fa-share-nodes"></i> Express</span>
+                        <span class="tech"><i class="fa-solid fa-database"></i> MongoDB</span>
+                    </div>
+                    <a href='' style="display:block; margin-top: 20px;"><i class="fa-brands fa-github" style="color: #ddd;"></i> Project Code</a>
+                </div>
+
+                <div class="project-card ">
+                    <div class="project-title"><i class="fa-regular fa-circle-dot" style="color: #bd5dea;"></i> JWT-Based Authentication System using Node.js</div>
+                    <div class="project-desc">
+                        Built a secure authentication system using Node.js and JSON Web Tokens (JWT). Implemented user login and registration APIs that generate JWT tokens upon successful authentication. The client securely stores and sends the token in the Authorization header
+                        as a Bearer token to access protected routes. Ensured password security and token validation for protected resources.
+                    </div>
+
+                    <div class="mt-3">
+                        <span class="tech"><i class="fa-brands fa-node-js"></i> Node.js</span>
+                        <span class="tech"><i class="fa-solid fa-share-nodes"></i> Express</span>
+                        <span class="tech"><i class="fa-solid fa-database"></i> MongoDB</span>
+                        <span class="tech"><i class="fa-solid fa-lock"></i> JWT</span>
+                    </div>
+                    <a href='' style="display:block; margin-top: 20px;"><i class="fa-brands fa-github" style="color: #ddd;"></i> Project Code</a>
+                </div>
+
+                <div class="project-card ">
+                    <div class="project-title"><i class="fa-regular fa-circle-dot" style="color: #bd5dea;"></i> Blog Management System (Node.js, Express, EJS)</div>
+                    <div class="project-desc">
+                        Developed a full-stack blog web application using Node.js, Express, and EJS with JWT-based authentication and role-based access control. Implemented secure admin authentication allowing only admins to create, manage, and delete blog posts, while clients
+                        can view blogs publicly. Built protected routes, middleware for token verification, and dynamic server-rendered pages with EJS. Focused on clean routing structure, security, and user-friendly blog management.
+                    </div>
+
+                    <div class="mt-3">
+                        <span class="tech"><i class="fa-brands fa-node-js"></i> Node.js</span>
+                        <span class="tech"><i class="fa-solid fa-share-nodes"></i> Express</span>
+                        <span class="tech"><i class="fa-solid fa-database"></i> MongoDB</span>
+                        <span class="tech"><i class="fa-solid fa-lock"></i> JWT</span>
+                        <span class="tech"><i class="fa-solid fa-pen"></i> EJS</span>
+                    </div>
+                    <a href='' style="display:block; margin-top: 20px;"><i class="fa-brands fa-github" style="color: #ddd;"></i> Project Code</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="slide contact">
+            <h2 class="contact-title">Get In Touch <i class="fa-solid fa-message fa-fade" style="color: #af86d0; "></i>
             </h2>
-            <p class="contact-sub">Have a project,
-                idea,
-                or just want to connect? Let’s build something great together. </p>
+            <p class="contact-sub">Have a project, idea, or just want to connect? Let’s build something great together. </p>
             <div class="contact-grid">
-                <div class="contact-card"><i class="fa-solid fa-envelope fa-beat-fade"></i> 
+                <div class="contact-card"><i class="fa-solid fa-envelope fa-beat-fade"></i>
                     <h5>Email</h5>
                     <p><a href="mailto: iamvishushakti@gmail.com">iamvishushakti@gmail.com</a></p>
                 </div>
-                <div class="contact-card"><i class="fa-solid fa-phone fa-shake"></i> 
+                <div class="contact-card"><i class="fa-solid fa-phone fa-shake"></i>
                     <h5>Phone</h5>
                     <p>+91-XXXXXXXXXX</p>
                 </div>
-                <div class="contact-card"><i class="fa-brands fa-linkedin"></i> 
+                <div class="contact-card"><i class="fa-brands fa-linkedin"></i>
                     <h5>LinkedIn</h5>
                     <p>linkedin.com/in/iamvishushakti</p>
                 </div>
-                <div class="contact-card"><i class="fa-brands fa-github"></i> 
+                <div class="contact-card"><i class="fa-brands fa-github"></i>
                     <h5>GitHub</h5>
                     <p>github.com/iamvishishakti</p>
                 </div>
             </div>
         </section>
 
-</div>
+    </div>
 
-<script>
-let current=0;
-const slides=document.querySelectorAll(".slide");
-let lock=false;
+    <script>
+        let current = 0;
+        const slides = document.querySelectorAll(".slide");
+        let lock = false;
 
-/* Restore last slide */
-const saved=sessionStorage.getItem("slideIndex");
-if(saved){
-slides[0].classList.remove("active");
-current=parseInt(saved);
-slides[current].classList.add("active");
-}
+        /* Restore last slide */
+        //const saved = sessionStorage.getItem("slideIndex");
+        const saved = '';
+        if (saved) {
+            slides[0].classList.remove("active");
+            current = parseInt(saved);
+            slides[current].classList.add("active");
+        }
 
-function show(i){
-slides[current].classList.remove("active");
-slides[current].scrollTop=0;
-current=(i+slides.length)%slides.length;
-slides[current].classList.add("active");
-sessionStorage.setItem("slideIndex",current);
-}
+        function show(i) {
+            slides[current].classList.remove("active");
+            slides[current].scrollTop = 0;
+            current = (i + slides.length) % slides.length;
+            slides[current].classList.add("active");
+            sessionStorage.setItem("slideIndex", current);
+        }
 
-function goTo(i){show(i);}
+        function goTo(i) {
+            show(i);
+        }
 
-/* Wheel */
-window.addEventListener("wheel",e=>{
-if(lock)return;
-lock=true;
-e.deltaY>0?show(current+1):show(current-1);
-setTimeout(()=>lock=false,800);
-},{passive:true});
+        /* Wheel */
+        window.addEventListener("wheel", e => {
+            if (lock) return;
+            lock = true;
+            e.deltaY > 0 ? show(current + 1) : show(current - 1);
+            setTimeout(() => lock = false, 800);
+        }, {
+            passive: true
+        });
 
-/* Touch */
-let startY=0;
-window.addEventListener("touchstart",e=>startY=e.touches[0].clientY,{passive:true});
-window.addEventListener("touchend",e=>{
-let endY=e.changedTouches[0].clientY;
-if(Math.abs(startY-endY)<50)return;
-startY>endY?show(current+1):show(current-1);
-},{passive:true});
+        /* Touch */
+        let startY = 0;
+        window.addEventListener("touchstart", e => startY = e.touches[0].clientY, {
+            passive: true
+        });
+        window.addEventListener("touchend", e => {
+            let endY = e.changedTouches[0].clientY;
+            if (Math.abs(startY - endY) < 50) return;
+            startY > endY ? show(current + 1) : show(current - 1);
+        }, {
+            passive: true
+        });
 
-/* Stop slide change while scrolling skills */
-document.querySelector(".skill-grid")
-.addEventListener("wheel",e=>e.stopPropagation(),{passive:true});
+        /* Stop slide change while scrolling skills */
+        document.querySelector(".skill-grid")
+            .addEventListener("wheel", e => e.stopPropagation(), {
+                passive: true
+            });
 
-/* Typing */
-const nameText="Vishal Kumar";
-let i=0;
-const target=document.getElementById("typingName");
-(function type(){
-if(i<nameText.length){
-target.textContent+=nameText[i++];
-setTimeout(type,120);
-}
-})();
+        /* Typing */
+        const nameText = "Vishal Kumar";
+        let i = 0;
+        const target = document.getElementById("typingName");
+        (function type() {
+            if (i < nameText.length) {
+                target.textContent += nameText[i++];
+                setTimeout(type, 120);
+            }
+        })();
 
-/* Experience counter */
-function animateDuration(el){
-const total=parseInt(el.dataset.months);
-let cur=0;
-const timer=setInterval(()=>{
-cur++;
-el.textContent=cur+" Months";
-if(cur>=total)clearInterval(timer);
-},40);
-}
-document.querySelectorAll('.exp-duration').forEach(animateDuration);
-</script>
+        /* Experience counter */
+        // function animateDuration(el) {
+        //     const total = parseInt(el.dataset.months);
+        //     let cur = 0;
+        //     const timer = setInterval(() => {
+        //         cur++;
+        //         el.textContent = cur + " Months";
+        //         if (cur >= total) clearInterval(timer);
+        //     }, 40);
+        // }
+        // document.querySelectorAll('.exp-duration').forEach(animateDuration);
+
+        function parseDate(str) {
+            const [dd, mm, yyyy] = str.split("-");
+            return new Date(yyyy, mm - 1, dd);
+        }
+
+        function getYMDdiff(start, end) {
+            let y = end.getFullYear() - start.getFullYear();
+            let m = end.getMonth() - start.getMonth();
+            let d = end.getDate() - start.getDate();
+
+            // adjust days
+            if (d < 0) {
+                m--;
+                const prevMonth = new Date(end.getFullYear(), end.getMonth(), 0);
+                d += prevMonth.getDate();
+            }
+
+            // adjust months
+            if (m < 0) {
+                y--;
+                m += 12;
+            }
+
+            return {
+                y,
+                m,
+                d
+            };
+        }
+
+        function animateDuration(el) {
+            const startAttr = el.getAttribute("startDay");
+            const endAttr = el.getAttribute("lastDate");
+
+            if (!startAttr) return;
+
+            const startDate = parseDate(startAttr);
+            const endDate = endAttr ? parseDate(endAttr) : new Date();
+
+            const diff = getYMDdiff(startDate, endDate);
+
+            // format text
+            let text = "";
+            if (diff.y) text += diff.y + " Year ";
+            if (diff.m) text += diff.m + " Month ";
+            if (diff.d) text += diff.d + " Day";
+
+            el.textContent = text.trim() || "0 Day";
+        }
+
+        document.querySelectorAll(".exp-duration").forEach(animateDuration);
+    </script>
 
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
