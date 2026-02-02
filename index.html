@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <title>Vishal Kumar | Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<!-- Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Font Awesome -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<!-- Font -->
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -18,6 +24,7 @@
 --bg:#020617;
 }
 
+/* GLOBAL */
 body{
 margin:0;
 height:100vh;
@@ -58,7 +65,7 @@ color:transparent;
 @keyframes blink{50%{opacity:0}}
 
 .nav-menu button{
-margin-left:10px;
+margin-left:12px;
 background:rgba(139,92,246,.15);
 border:none;
 color:var(--text);
@@ -81,8 +88,8 @@ position:absolute;
 inset:0;
 padding:140px 10%;
 opacity:0;
-transform:translateY(80px);
-transition:.8s;
+transform:translateY(90px);
+transition:1s;
 pointer-events:none;
 overflow-y:auto;
 }
@@ -93,12 +100,6 @@ transform:none;
 pointer-events:auto;
 }
 
-.slide::-webkit-scrollbar{width:6px}
-.slide::-webkit-scrollbar-thumb{
-background:rgba(139,92,246,.4);
-border-radius:10px;
-}
-
 /* BACKGROUNDS */
 .home{background:radial-gradient(circle at top left,#1e1b4b,transparent 45%),#020617}
 .about{background:radial-gradient(circle at bottom right,#164e63,transparent 45%),#020617}
@@ -107,19 +108,11 @@ border-radius:10px;
 .projects{background:radial-gradient(circle at top left,#3f1d4d,transparent 45%),#020617}
 .contact{background:radial-gradient(circle at bottom left,#052e16,transparent 45%),#020617}
 
-/* HEADINGS */
-h1,h2{
-font-weight:700;
-background:linear-gradient(90deg,#8b5cf6,#22d3ee);
--webkit-background-clip:text;
-color:transparent;
-}
-
 /* CARDS */
 .skill-card,.project-card,.exp-card{
 background:rgba(15,23,42,.6);
 backdrop-filter:blur(10px);
-border-radius:20px;
+border-radius:22px;
 padding:26px;
 border:1px solid rgba(139,92,246,.2);
 transition:.4s;
@@ -133,21 +126,15 @@ box-shadow:0 25px 60px rgba(139,92,246,.45),
 0 0 20px rgba(34,211,238,.35);
 }
 
-/* GRIDS */
-.skill-grid,.project-grid,.exp-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:24px;
-margin-top:30px;
-}
-
-/* SKILL SCROLL FIX */
+/* SKILL GRID SCROLL */
 .skills{overflow:hidden!important}
-
 .skill-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:26px;
+margin-top:30px;
 max-height:65vh;
 overflow-y:auto;
-padding-right:6px;
 }
 
 /* SKILL DESCRIPTION */
@@ -168,21 +155,26 @@ transform:none;
 margin-top:8px;
 }
 
-/* EMOJI WAVE */
+/* EMOJI */
 .wave-emoji{
 display:inline-block;
+font-size:40px;
 animation:wave 1.5s infinite;
 transform-origin:70% 70%;
 }
 
 @keyframes wave{
-0%{transform:rotate(0)}
 15%{transform:rotate(14deg)}
 30%{transform:rotate(-8deg)}
 40%{transform:rotate(14deg)}
-100%{transform:rotate(0)}
 }
 
+/* SOCIAL LINKS */
+.section-bottom-left{
+position:absolute;
+bottom:0;
+color:#4f679f;
+}
 </style>
 </head>
 
@@ -191,90 +183,106 @@ transform-origin:70% 70%;
 <header>
 <div class="nav-inner">
 <div class="brand">
-<i class="fa-solid fa-face-smile" style="color:#FFD43B"></i>
+<i class="fa-solid fa-face-smile" style="color:#FFD43B;"></i>
 <span id="typingName"></span><span class="cursor">|</span>
 </div>
 
 <div class="nav-menu">
-<button onclick="goTo(0)">Home</button>
-<button onclick="goTo(1)">About</button>
-<button onclick="goTo(2)">Experience</button>
-<button onclick="goTo(3)">Skills</button>
-<button onclick="goTo(4)">Projects</button>
-<button onclick="goTo(5)">Contact</button>
+<button onclick="goTo(0)"><i class="fas fa-home"></i> Home</button>
+<button onclick="goTo(1)"><i class="fas fa-comments"></i> About</button>
+<button onclick="goTo(2)"><i class="fas fa-clock"></i> Experience</button>
+<button onclick="goTo(3)"><i class="fa-solid fa-code"></i> Skills</button>
+<button onclick="goTo(4)"><i class="fa-solid fa-diagram-project"></i> Projects</button>
+<button onclick="goTo(5)"><i class="far fa-envelope"></i> Contact</button>
 </div>
 </div>
 </header>
 
 <div class="wrapper">
 
+<!-- HOME -->
 <section class="slide home active">
+<div class="row align-items-center">
+<div class="col-md-7">
 <h1>Hello, I’m Vishal Kumar <span class="wave-emoji">👋</span></h1>
 <p class="fs-5 mt-3">
-Full Stack Developer • WHMCS Specialist • SQL Expert
+Full Stack Developer • WHMCS Specialist • SQL Expert<br>
+Building <strong>scalable, secure & business-critical</strong> systems.
 </p>
+</div>
+
+<div class="col-md-5 section-bottom-left">
+<a href="" style="display:block;"><i class="fa-brands fa-github"></i> @iamvisushakti</a>
+<a href="" style="display:block;"><i class="fa-brands fa-linkedin" style="color:#8172ca;"></i> @iamvisushakti</a>
+<a href=""><i class="fa-brands fa-youtube" style="color:#d81313;"></i> Online Coding Classes</a>
+</div>
+</div>
 </section>
 
+<!-- ABOUT -->
 <section class="slide about">
-<h2>About Me</h2>
-<p>Web Developer with 3+ years experience in backend & SaaS.</p>
+<h2><i class="fas fa-comments"></i> About Me</h2>
+<p>I’m a Web Developer with 3+ years experience in backend, SQL and SaaS platforms.</p>
 </section>
 
+<!-- EXPERIENCE -->
 <section class="slide experience">
-<h2>Experience</h2>
+<h2><i class="fas fa-clock"></i> Experience</h2>
 
 <div class="exp-grid">
 <div class="exp-card">
-<h5>Full Stack Developer</h5>
-<p>SaaS Company</p>
+<div class="exp-role">Full Stack Developer</div>
+<div class="exp-company">SaaS Product Company</div>
 </div>
 
 <div class="exp-card">
-<h5>Backend Developer</h5>
-<p>Enterprise Solutions</p>
+<div class="exp-role">Backend Developer</div>
+<div class="exp-company">Enterprise Solutions</div>
 </div>
 </div>
 </section>
 
+<!-- SKILLS -->
 <section class="slide skills">
-<h2>Skills</h2>
+<h2><i class="fa-solid fa-code"></i> Skills</h2>
 
 <div class="skill-grid">
-<div class="skill-card"><h5>HTML</h5>
-<p class="discription-skill">Smarty, EJS</p></div>
+<div class="skill-card"><i class="fa-brands fa-html5"></i><h5>HTML</h5>
+<p class="discription-skill">Smarty (WHMCS) | EJS</p></div>
 
-<div class="skill-card"><h5>CSS</h5>
-<p class="discription-skill">Bootstrap</p></div>
+<div class="skill-card"><i class="fa-brands fa-css3-alt"></i><h5>CSS</h5>
+<p class="discription-skill">CSS | Bootstrap</p></div>
 
-<div class="skill-card"><h5>JavaScript</h5>
-<p class="discription-skill">DOM, Ajax</p></div>
+<div class="skill-card"><i class="fa-brands fa-square-js"></i><h5>JavaScript</h5>
+<p class="discription-skill">JS | JQuery</p></div>
 
-<div class="skill-card"><h5>Node.js</h5>
-<p class="discription-skill">Express, JWT</p></div>
+<div class="skill-card"><i class="fa-brands fa-node-js"></i><h5>Node.js</h5>
+<p class="discription-skill">Express | JWT</p></div>
 
-<div class="skill-card"><h5>PHP</h5>
+<div class="skill-card"><i class="fa-brands fa-php"></i><h5>PHP</h5>
 <p class="discription-skill">3+ years</p></div>
 
-<div class="skill-card"><h5>React</h5>
-<p class="discription-skill">SPA Dev</p></div>
+<div class="skill-card"><i class="fa-brands fa-react"></i><h5>React</h5></div>
 
-<div class="skill-card"><h5>SQL/MongoDB</h5>
-<p class="discription-skill">Database design</p></div>
+<div class="skill-card"><i class="fa-solid fa-database"></i><h5>SQL | MongoDB</h5>
+<p class="discription-skill">DB Design</p></div>
 </div>
 </section>
 
+<!-- PROJECTS -->
 <section class="slide projects">
-<h2>Projects</h2>
+<h2><i class="fa-solid fa-diagram-project"></i> Projects</h2>
 <div class="project-grid">
-<div class="project-card">Invoice System</div>
-<div class="project-card">CRM Platform</div>
-<div class="project-card">SaaS Billing</div>
+<div class="project-card">Invoice Automation System</div>
+<div class="project-card">CRM Management Platform</div>
+<div class="project-card">SaaS Subscription Platform</div>
 </div>
 </section>
 
+<!-- CONTACT -->
 <section class="slide contact">
-<h2>Contact</h2>
-<p>Email: iamvishushakti@gmail.com</p>
+<h2>Get In Touch <i class="fa-solid fa-message"></i></h2>
+<p>Email: <a href="mailto:iamvishushakti@gmail.com">iamvishushakti@gmail.com</a></p>
 </section>
 
 </div>
@@ -292,7 +300,7 @@ slides[current].classList.add("active");
 }
 function goTo(i){show(i);}
 
-/* WHEEL NAV */
+/* WHEEL */
 window.addEventListener("wheel",e=>{
 if(lock)return;
 lock=true;
@@ -300,19 +308,16 @@ e.deltaY>0?show(current+1):show(current-1);
 setTimeout(()=>lock=false,800);
 },{passive:true});
 
-/* TOUCH NAV */
+/* TOUCH */
 let startY=0;
-window.addEventListener("touchstart",e=>{
-startY=e.touches[0].clientY;
-},{passive:true});
-
+window.addEventListener("touchstart",e=>{startY=e.touches[0].clientY},{passive:true});
 window.addEventListener("touchend",e=>{
 let endY=e.changedTouches[0].clientY;
 if(Math.abs(startY-endY)<50)return;
 startY>endY?show(current+1):show(current-1);
 },{passive:true});
 
-/* TYPING EFFECT */
+/* TYPING */
 const nameText="Vishal Kumar";
 let i=0;
 const target=document.getElementById("typingName");
