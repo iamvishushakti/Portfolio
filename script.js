@@ -43,14 +43,14 @@
 
         // /* TYPING EFFECT */
 
-        // const nameText = "Vishal Kumar";
-        // let i = 0;
-        // const target = document.getElementById("typingName");
-        // (function type() {
-        //     if (i < nameText.length) {
-        //         target.textContent += nameText.charAt(i++);
-        //         setTimeout(type, 120);
-        //     }
+        const nameText = "Vishal Kumar";
+        let i = 0;
+        const target = document.getElementById("typingName");
+        (function type() {
+            if (i < nameText.length) {
+                target.textContent += nameText.charAt(i++);
+                setTimeout(type, 120);
+            }
         // }
 
         // )();
