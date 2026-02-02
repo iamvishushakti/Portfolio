@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vishal Kumar | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --accent: #8b5cf6;
+            --accent2: #22d3ee;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --bg: #020617;
+        }
+
+        /* GLOBAL */
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Fira Code', monospace;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(2, 6, 23, .7);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 12px 40px rgba(139, 92, 246, .25);
+        }
+
+        .nav-inner {
+            max-width: 1400px;
+            margin: auto;
+            padding: 14px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            font-size: 22px;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .cursor {
+            color: var(--accent2);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            50% {
+                opacity: 1
+            }
+
+            51%,
+            100% {
+                opacity: 0
+            }
+        }
+
+        .nav-menu button {
+            margin-left: 12px;
+            font-weight: 600;
+            background: rgba(139, 92, 246, .15);
+            border: none;
+            color: var(--text);
+        }
+
+        .nav-menu button:hover {
+            background: rgba(139, 92, 246, .35)
+        }
+
+        /* SLIDES */
+        .wrapper {
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            inset: 0;
+            padding: 140px 10%;
+            opacity: 0;
+            transform: translateY(90px);
+            transition: 1s cubic-bezier(.22, .61, .36, 1);
+            pointer-events: none;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: none;
+            pointer-events: auto;
+        }
+
+        /* BACKGROUNDS */
+        .home {
+            background: radial-gradient(circle at top left, #1e1b4b, transparent 45%), #020617;
+        }
+
+        .about {
+            background: radial-gradient(circle at bottom right, #164e63, transparent 45%), #020617;
+        }
+
+        .experience {
+            background: radial-gradient(circle at top right, #312e81, transparent 45%), #020617;
+        }
+
+        .skills {
+            background: radial-gradient(circle at center, #0f172a, transparent 45%), #020617;
+        }
+
+        .projects {
+            background: radial-gradient(circle at top left, #3f1d4d, transparent 45%), #020617;
+        }
+
+        .contact {
+            background: radial-gradient(circle at bottom left, #052e16, transparent 45%), #020617;
+        }
+
+        /* TEXT ANIMATION */
+        .slide h1,
+        .slide h2,
+        .slide p,
+        .slide ul,
+        .skill-card,
+        .project-card,
+        .exp-card {
+            opacity: 0;
+            transform: translateY(35px);
+            animation: fadeUp .8s forwards;
+        }
+
+        .slide.active h1,
+        .slide.active h2 {
+            animation-delay: .1s
+        }
+
+        .slide.active p {
+            animation-delay: .25s
+        }
+
+        .slide.active ul,
+        .slide.active .skill-card,
+        .slide.active .project-card,
+        .slide.active .exp-card {
+            animation-delay: .4s
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        h1,
+        h2 {
+            font-weight: 700
+        }
+
+        p,a {
+            max-width: 900px;
+            text-decoration: none;
+            color: var(--muted)
+        }
+
+        /* ========================= */
+        /* EXPERIENCE – UPGRADED     */
+        /* ========================= */
+        .exp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .exp-card {
+            background: rgba(15, 23, 42, .85);
+            border-radius: 22px;
+            padding: 28px;
+            border: 1px solid rgba(139, 92, 246, .15);
+            transition: .45s;
+        }
+
+        .exp-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 60px rgba(139, 92, 246, .45);
+        }
+
+        .exp-role {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .exp-company {
+            font-size: 14px;
+            color: #c7d2fe;
+            margin-bottom: 6px;
+        }
+
+        .exp-duration {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 10px 0;
+        }
+
+        .tech {
+            display: inline-block;
+            font-size: 12px;
+            padding: 5px 12px;
+            border-radius: 14px;
+            margin: 4px 6px 0 0;
+            background: rgba(139, 92, 246, .2);
+        }
+
+        /* ========================= */
+        /* SKILLS                    */
+        /* ========================= */
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 26px;
+            margin-top: 30px;
+        }
+
+        .skill-card {
+            background: rgba(15, 23, 42, .85);
+            border-radius: 22px;
+            padding: 26px;
+            text-align: center;
+            border: 1px solid rgba(139, 92, 246, .15);
+            transition: .45s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 60px rgba(139, 92, 246, .45);
+        }
+
+        .skill-card i {
+            font-size: 36px;
+            margin-bottom: 12px;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .skill-card h5 {
+            font-weight: 700
+        }
+
+        /* ========================= */
+        /* PROJECTS                  */
+        /* ========================= */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 26px;
+            margin-top: 30px;
+        }
+
+        .project-card {
+            background: rgba(15, 23, 42, .85);
+            border-radius: 22px;
+            padding: 26px;
+            border: 1px solid rgba(139, 92, 246, .15);
+            transition: .45s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-14px);
+            box-shadow: 0 25px 60px rgba(139, 92, 246, .45);
+        }
+
+        .project-title {
+            font-weight: 700
+        }
+
+        .project-desc {
+            font-size: 14px;
+            color: var(--muted)
+        }
+
+        .tech i {
+            margin-right: 6px;
+            font-size: 12px;
+        }
+
+        .about-line:hover .highlight {
+            text-shadow: 0 0 12px rgba(34, 211, 238, .6);
+            transition: .3s;
+        }
+
+
+        /* ========================= */
+        /* ABOUT – TEXT ANIMATION    */
+        /* ========================= */
+
+        .about-title {
+            margin-bottom: 20px;
+        }
+
+        .about-line {
+            font-size: 18px;
+            max-width: 900px;
+            margin-top: 16px;
+            line-height: 1.7;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: aboutFade .9s ease forwards;
+        }
+
+        .about-line.delay {
+            animation-delay: .25s;
+        }
+
+        .about-line.delay2 {
+            animation-delay: .45s;
+        }
+
+        .highlight {
+            color: var(--accent2);
+            font-weight: 600;
+        }
+
+        @keyframes aboutFade {
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        .hero-img {
+            width: 260px;
+            /* height:260px; */
+            /* border-radius:50%; */
+            object-fit: cover;
+            filter: grayscale(100%) contrast(1.2);
+            /* border:3px solid rgba(139,92,246,.6); */
+            /* box-shadow:0 0 40px rgba(139,92,246,.45); */
+        }
+
+        /* RIGHT SLIDE ANIMATION */
+        .hero-img-animate {
+            opacity: 0;
+            transform: translateX(120px) scale(.9);
+            animation: imgRightIn 1.2s cubic-bezier(.22, .61, .36, 1) forwards;
+            animation-delay: .4s;
+        }
+
+        @keyframes imgRightIn {
+            to {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+
+        /* HOVER EFFECT */
+        .hero-img:hover {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+            transition: .4s;
+        }
+
+        .img-section-bottom-right{
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+        }
+
+        .section-bottom-left{
+            position: absolute;
+            bottom: 0px;
+            color: #4f679f;
+        }
+
+        /* add */
+        .slide {
+            position: absolute;
+            inset: 0;
+            padding: 140px 10%;
+            opacity: 0;
+            transform: translateY(90px);
+            transition: 1s cubic-bezier(.22, .61, .36, 1);
+            pointer-events: none;
+
+            overflow-y: auto;        /* ✅ enable vertical scroll */
+            overscroll-behavior: contain;
+        }
+
+        .slide::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .slide::-webkit-scrollbar-thumb {
+            background: rgba(139, 92, 246, .4);
+            border-radius: 10px;
+        }
+
+        .skill-card{
+            position: relative;
+        }
+
+        /* Hidden state */
+        .discription-skill{
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(-10px);
+
+            transition:
+                max-height 0.45s ease,
+                opacity 0.35s ease,
+                transform 0.35s ease;
+
+            margin: 0;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* Hover → slide down */
+        .skill-card:hover .discription-skill{
+            max-height: 80px;   /* enough for 1–2 lines */
+            opacity: 1;
+            transform: translateY(0);
+            margin-top: 8px;
+        }
+
+        .skill-card:hover .discription-skill{
+            transition-delay: 0.08s;
+        }
+
+        .discription-skill{
+            transition:
+                max-height 0.45s ease,
+                opacity 0.3s ease,
+                transform 0.35s ease;
+        }
+
+        .wave-emoji{
+            display: inline-block;
+            font-size: 40px;
+            animation: wave 1.5s infinite;
+            transform-origin: 70% 70%;
+        }
+
+        @keyframes wave{
+            0%{ transform: rotate(0deg); }
+            15%{ transform: rotate(14deg); }
+            30%{ transform: rotate(-8deg); }
+            40%{ transform: rotate(14deg); }
+            50%{ transform: rotate(-4deg); }
+            60%{ transform: rotate(10deg); }
+            100%{ transform: rotate(0deg); }
+        }
+
+
+       
+        
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="nav-inner">
+            <div class="brand">
+                <i class="fa-solid fa-face-smile" style="color: #FFD43B;"></i> <span id="typingName"></span><span class="cursor">|</span>
+            </div>
+            <div class="nav-menu">
+                <button onclick="goTo(0)"><i class="fas fa-home"></i> Home</button>
+                <button onclick="goTo(1)"><i class="fas fa-comments "></i>  About</button>
+                <button onclick="goTo(2)"><i class="fas fa-clock "></i> Experience</button>
+                <button onclick="goTo(3)"><i class="fa-solid fa-code"></i> Skills</button>
+                <button onclick="goTo(4)"><i class="fa-solid fa-diagram-project"></i> Projects</button>
+                <button onclick="goTo(5)"><i class="far fa-envelope"></i> Contact</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="wrapper">
+
+        <!-- HOME -->
+        <section class="slide home active">
+
+            <div class="row align-items-center">
+                <div class="col-md-7">
+                    <h1>Hello, I’m Vishal Kumar <span class="wave-emoji">👋</span></h1>
+                    <p class="fs-5 mt-3">
+                        Full Stack Developer • WHMCS Specialist • SQL Expert <br>
+                        Building <strong>scalable, secure & business-critical</strong> systems.
+                    </p>
+                </div>
+                <div class="col-md-5  section-bottom-left" id="">
+                    <a href='' title="github" style="display: block;"><i class="fa-brands fa-github" ></i> @iamvisushakti</a>
+                    <a href='' title="LinkedIn" style="display: block;"><i class="fa-brands fa-linkedin" style="color: #8172ca;"></i> @iamvisushakti</a>
+                    <a href=''><i class="fa-brands fa-youtube" style="color: #d81313;"></i> Online Coding Classes</a>
+                </div>
+                <!-- <div class="col-md-5 text-center img-section-bottom-right" id="">
+                    <img src="https://pngimg.com/uploads/man/man_PNG6531.png" class="hero-img hero-img-br"
+                        alt="Developer Portrait">
+                </div> -->
+            </div>
+
+
+
+        </section>
+
+        <!-- ABOUT -->
+        <section class="slide about">
+        <h2 class="about-title"><i class="fas fa-comments fa-shake"></i> About Me</h2>
+
+        <p class="about-line">
+            I’m a <span class="highlight">Web Developer</span> with 3+ years of experience and strong expertise in
+            <span class="highlight">backend development</span>, <span class="highlight">SQL databases</span>,
+            and <span class="highlight">SaaS platforms</span>.
+        </p>
+
+        <p class="about-line delay">
+            I specialize in <span class="highlight">WHMCS customization</span>, custom module development,
+            <span class="highlight">billing automation</span>, <span class="highlight">SQL optimization</span>,
+            and <span class="highlight">API integrations</span>.
+        </p>
+
+        <p class="about-line delay2">
+            I enjoy solving complex business problems, building scalable systems,
+            and delivering <strong>secure, maintainable, and performance-driven</strong> solutions.
+        </p>
+    </section>
+
+
+
+        <!-- EXPERIENCE (UPGRADED) -->
+        <section class="slide experience">
+            <h2> <i class="fas fa-clock fa-spin"></i> Experience</h2>
+
+            <div class="exp-grid" >
+
+                <div class="exp-card">
+                    <div class="exp-role">Full Stack Developer</div>
+                    <div class="exp-company">SaaS Product Company</div>
+                    <div class="exp-duration" data-months="24">0 Months</div>
+
+                    <span class="tech">Node.js</span>
+                    <span class="tech">PHP</span>
+                    <span class="tech">MySQL</span>
+                    <span class="tech">REST APIs</span>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-role">Backend Developer</div>
+                    <div class="exp-company">Enterprise Solutions</div>
+                    <div class="exp-duration" data-months="18">0 Months</div>
+
+                    <span class="tech">Node.js</span>
+                    <span class="tech">MongoDB</span>
+                    <span class="tech">Authentication</span>
+                    <span class="tech">Integrations</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section class="slide skills">
+            <h2><i class="fa-solid fa-code fa-beat-fade"></i> Skills</h2>
+            <div class="skill-grid">
+                <div class="skill-card"><i class="fa-brands fa-html5"></i>
+                    <h5>HTML</h5>
+                    <p class="discription-skill">Smarty in (WHMCS) | Ejs in NodeJS</p>
+                </div>
+                <div class="skill-card"><i class="fa-brands fa-css3-alt"></i><i class="fa-brands fa-bootstrap"></i>
+                    <h5>CSS</h5>
+                    <p class="discription-skill">CSS | Bootstrap Basic</p>
+                </div>
+                <div class="skill-card"><i class="fa-brands fa-square-js"></i>
+                    <h5>Java Script</h5>
+                    <p class="discription-skill">JS | JQuery (AJax, DOM)</p>
+                </div>
+                <div class="skill-card"><i class="fa-brands fa-node-js"></i>
+                    <h5>Node.js</h5>
+                    <p class="discription-skill">Express | JWT | EJs(View)</p>
+                </div>
+                <div class="skill-card"><i class="fa-brands fa-php"></i>
+                    <h5>PHP</h5>
+                    <p class="discription-skill">3year+ Exprience WGS</p>
+                </div>
+                <div class="skill-card "><i class="fa-brands fa-react fa-spin"></i>
+                    <h5>React</h5>
+                    <p class="discription-skill"></p>
+                </div>
+                <div class="skill-card"><i class="fa-solid fa-database"></i>
+                    <h5>SQL | MongoDB</h5>
+                    <p class="discription-skill">In Sql 9 Months Exprience</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="slide projects">
+            <h2><i class="fa-solid fa-diagram-project fa-fade"></i> Projects</h2>
+
+            <div class="project-grid">
+
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-title">Invoice Automation System</div>
+                    <div class="project-desc">
+                        Billing, tax calculation, compliance automation & reporting system.
+                    </div>
+
+                    <div class="mt-3">
+                        <span class="tech"><i class="fa-brands fa-node-js"></i>Node.js</span>
+                        <span class="tech"><i class="fa-brands fa-php"></i>PHP</span>
+                        <span class="tech"><i class="fa-solid fa-database"></i>MySQL</span>
+                        <span class="tech"><i class="fa-solid fa-plug"></i>REST API</span>
+                        <span class="tech"><i class="fa-solid fa-file-invoice"></i>VeriFactu</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-title">CRM Management Platform</div>
+                    <div class="project-desc">
+                        Role-based CRM with analytics, lead tracking & dashboards.
+                    </div>
+
+                    <div class="mt-3">
+                        <span class="tech"><i class="fa-brands fa-node-js"></i>Node.js</span>
+                        <span class="tech"><i class="fa-solid fa-leaf"></i>MongoDB</span>
+                        <span class="tech"><i class="fa-brands fa-react"></i>React</span>
+                        <span class="tech"><i class="fa-solid fa-key"></i>JWT Auth</span>
+                        <span class="tech"><i class="fa-solid fa-chart-line"></i>Analytics</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-title">SaaS Subscription Platform</div>
+                    <div class="project-desc">
+                        Subscription billing, plans & payment integration system.
+                    </div>
+
+                    <div class="mt-3">
+                        <span class="tech"><i class="fa-brands fa-node-js"></i>Node.js</span>
+                        <span class="tech"><i class="fa-brands fa-stripe"></i>Stripe</span>
+                        <span class="tech"><i class="fa-solid fa-database"></i>MySQL</span>
+                        <span class="tech"><i class="fa-solid fa-clock"></i>Cron Jobs</span>
+                        <span class="tech"><i class="fa-solid fa-user-shield"></i>RBAC</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+
+        <!-- CONTACT -->
+        <!-- CONTACT -->
+        <section class="slide contact">
+            <h2 class="contact-title">Get In Touch  <i class="fa-solid fa-message fa-fade" style="color: #af86d0; "></i></h2>
+            <p class="contact-sub">
+                Have a project, idea, or just want to connect?
+                Let’s build something great together.
+            </p>
+
+            <div class="contact-grid">
+
+                <div class="contact-card">
+                    <i class="fa-solid fa-envelope fa-beat-fade"></i>
+                    <h5>Email</h5>
+                    <p><a href="mailto: iamvishushakti@gmail.com">iamvishushakti@gmail.com</a></p>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fa-solid fa-phone fa-shake"></i>
+                    <h5>Phone</h5>
+                    <p>+91-XXXXXXXXXX</p>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <h5>LinkedIn</h5>
+                    <p>linkedin.com/in/iamvishushakti</p>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fa-brands fa-github"></i>
+                    <h5>GitHub</h5>
+                    <p>github.com/iamvishishakti</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+    <!-- <script>
+        /* SLIDE CONTROL */
+        let current = 0;
+        const slides = document.querySelectorAll('.slide');
+        function show(i) {
+            slides[current].classList.remove('active');
+            current = (i + slides.length) % slides.length;
+            slides[current].classList.add('active');
+        }
+        function goTo(i) { show(i) }
+
+        let lock = false;
+        window.addEventListener('wheel', e => {
+            if (lock) return;
+            lock = true;
+            e.deltaY > 0 ? show(current + 1) : show(current - 1);
+            setTimeout(() => lock = false, 900);
+        });
+
+        /* TYPING EFFECT */
+        const nameText = "Vishal Kumar";
+        let i = 0;
+        const target = document.getElementById("typingName");
+        (function type() {
+            if (i < nameText.length) {
+                target.textContent += nameText.charAt(i++);
+                setTimeout(type, 120);
+            }
+        })();
+
+        /* EXPERIENCE DURATION ANIMATION */
+        function animateDuration(el) {
+            const total = parseInt(el.dataset.months, 10);
+            let cur = 0;
+            const step = Math.ceil(total / 40);
+            const timer = setInterval(() => {
+                cur += step;
+                if (cur >= total) { cur = total; clearInterval(timer); }
+                if (cur >= 12) {
+                    const y = Math.floor(cur / 12);
+                    const m = cur % 12;
+                    el.textContent = m === 0 ? `${y} Year${y > 1 ? 's' : ''}` : `${y} Year ${m} Month${m > 1 ? 's' : ''}`;
+                } else {
+                    el.textContent = `${cur} Month${cur > 1 ? 's' : ''}`;
+                }
+            }, 30);
+        }
+
+        const expObserver = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    animateDuration(e.target);
+                    expObserver.unobserve(e.target);
+                }
+            });
+        }, { threshold: .6 });
+
+        document.querySelectorAll('.exp-duration').forEach(el => expObserver.observe(el));
+    </script> -->
+
+     <script>
+        /* SLIDE CONTROL */
+        let current = 0;
+        const slides = document.querySelectorAll('.slide');
+        let lock = false;
+
+        function show(i) {
+            slides[current].classList.remove('active');
+            slides[current].scrollTop = 0;
+            current = (i + slides.length) % slides.length;
+            slides[current].classList.add('active');
+        }
+        function goTo(i) { show(i); }
+
+        /* SMART SCROLL + SLIDE */
+        window.addEventListener('wheel', e => {
+            const slide = slides[current];
+            const atTop = slide.scrollTop === 0;
+            const atBottom = Math.ceil(slide.scrollTop + slide.clientHeight) >= slide.scrollHeight;
+
+            if (lock) return;
+
+            if (e.deltaY > 0 && atBottom) {
+                lock = true;
+                show(current + 1);
+                setTimeout(() => lock = false, 900);
+            }
+            else if (e.deltaY < 0 && atTop) {
+                lock = true;
+                show(current - 1);
+                setTimeout(() => lock = false, 900);
+            }
+        }, { passive: true });
+
+        /* TYPING EFFECT */
+        const nameText = "Vishal Kumar";
+        let i = 0;
+        const target = document.getElementById("typingName");
+        (function type() {
+            if (i < nameText.length) {
+                target.textContent += nameText.charAt(i++);
+                setTimeout(type, 120);
+            }
+        })();
+    </script>
+</body>
+
+</html>
